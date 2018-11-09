@@ -9,9 +9,9 @@ class homepage_control extends CI_Controller {
 	
 	public function index($msg = NULL)
 	{
-		$this->load->view("template/home/header");
-		$this->load->view("homepage");
-		$this->load->view("template/home/footer");	
+		$this->load->view("template/dashboard/header");
+		$this->load->view("template/dashboard/transaction");
+		$this->load->view("template/dashboard/footer");	
 	}
 	
 }
