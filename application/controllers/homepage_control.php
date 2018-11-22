@@ -10,7 +10,7 @@ class homepage_control extends CI_Controller {
 	public function index($msg = NULL)
 	{
 		$this->load->view("template/home/header");
-		$this->load->view("homepage");
+		$this->load->view("signup");
 		$this->load->view("template/home/footer");	
 	}
 	
