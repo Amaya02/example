@@ -6,9 +6,18 @@
     <meta name="description" content="" />
     <meta name="author" content="">
 
-    <title>Example</title>
+    <title>Dashboard</title>
 
-    <link href="<?php echo base_url('assets/css/bootstrap.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" rel="stylesheet" />
+    <link href="<?php echo base_url('assets/css/dashboard.css'); ?>" rel="stylesheet" />
 
 </head>
 <body>
+
+	<header>
+	  <nav class="navigation-bar">
+	      <a href=""><img class="logo" src="<?php echo base_url('assets/images/logo.png'); ?>" alt="logo"></a>
+	      <a class="logout" href="#">LOG OUT</a>
+	  </nav>
+	</header>
+
