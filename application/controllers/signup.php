@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class homepage_control extends CI_Controller {
+class signup extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
@@ -9,10 +9,10 @@ class homepage_control extends CI_Controller {
 	
 	public function index($msg = NULL)
 	{
-		$data['title'] = "HOME";
+		$data['title'] = "SIGNUP";
 
 		$this->load->view("template/home/header",$data);
-		$this->load->view("homepage");
+		$this->load->view("signup");
 		$this->load->view("template/home/footer");	
 	}
 	
