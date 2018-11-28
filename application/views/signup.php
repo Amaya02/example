@@ -12,6 +12,13 @@
       </nav>
 </header>
 
+<?php
+    $error_msg=$this->session->flashdata('error_msg');
+    if($error_msg){
+        echo "<script type='text/javascript'>alert('$error_msg');</script>";
+    }
+?>
+
 <div class="bg-signup">
     <div class="container">
         <div class="row">
@@ -24,22 +31,21 @@
                                 W E L C O M E ! ! !
                             </div>
                             <div class="col-sm-8 sign-form">
-                                <form>
+                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process'>
                                     <div class="row">
                                       <div class="col-sm-6">
-                                        <input type="text" id="fname" name="email" placeholder="Email Address" required>
+                                        <input required type="email" name="email" placeholder="Email Address" />
                                       </div>
                                       <div class="col-sm-6">
-                                        <input type="text" id="ps" name="password" placeholder="Password" required>
+                                        <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
                                       </div>
                                     </div>
                                     <div class="row">
                                       <div class="col-sm-6">
-                                        <input type="text" id="ps" name="company" placeholder="Company Name" required>
+                                        <input required type="text" name="companyname" placeholder="Company Name" />
                                       </div>
                                       <div class="col-sm-6">
                                         <select id="country" name="country" required>
-                                        <option value="Choose"hidden>Choose Country</option>
                                         <option value="AFG">Afghanistan</option>
                                         <option value="ALA">Åland Islands</option>
                                         <option value="ALB">Albania</option>
@@ -294,16 +300,16 @@
                                     </div>
                                     <div class="row">
                                       <div class="col-sm-12">
-                                        <input type="text" id="add" name="address" placeholder="Address" required>
+                                        <input required type="text" name="address" placeholder="Address" />
                                       </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <input type="text" id="contact" name="contact" placeholder="Contact No." required>
+                                            <input required type="text" name="cnumber" placeholder="Phone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <input type="submit" value="REGISTER">
+                                        <button type="submit" class="btn-submit" >Register</button>
                                         <a class="back" href="<?php echo base_url(); ?>">BACK</a>
                                     </div>
                                 </form>
@@ -320,32 +326,27 @@
   <div class="modal-dialog modal-s">
     <div class="border">
       <div class="modal-content">
-      <div class="header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <div class="header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-      <div class="modal-body">
-       <form action='' method='post' name='process' autocomplete="off">
-        <div class="form-group">
-            <span class="glyphicon glyphicon-user"></span>
-            <input type="email" placeholder="Email Address" name="email" id="email" required>
-        </div>
-        <div class="form-group">
-            <span class="glyphicon glyphicon-lock"></span>
-            <input id="input" type="password" placeholder="Password" name="password" required>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="remember" onchange="tick(this)"> 
-          <label class="form-check-input" for="remember">Show Password</label>
-        </div>
-       </form>       
-      </div>
-      <div class="footer">
-          <button  id="btn-title"  data-dismiss="modal">SIGN IN</button> 
-          <button type="Submit" id="btn-signin" data-dismiss="modal">SIGN IN</button>
+        <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
+          <div class="modal-body">
+            <div class="form-group">
+              <span class="glyphicon glyphicon-user"></span>
+              <input type="email" name="email" id="email" placeholder="Enter email" required />
+              <br><span class="glyphicon glyphicon-lock"></span>
+              <input type="password" id="password" name="password" placeholder="Enter password" required />
+              <br><input class="form-check-input" type="checkbox" onclick="myFunction()" />Show Password
+            </div>      
+          </div>
+          <div class="footer">
+            <button  id="btn-title"  data-dismiss="modal">SIGN IN</button> 
+            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Signin</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
- </div>
 </div>
 
 <footer class="footer-home">

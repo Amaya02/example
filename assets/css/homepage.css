@@ -139,9 +139,18 @@
    border-bottom:3px solid #000;
 }
 
-.modal-body input{
+.modal-body .form-group input{
    border: none;
    border-bottom:3px solid #f8a513;
+   padding-top: 10px; 
+}
+
+.modal-body .form-group span {
+   padding-top: 10px; 
+}
+
+.modal-body .form-group .form-check-input{
+  margin-top: 10px;
 }
 
 @media(max-width: 895px) {
