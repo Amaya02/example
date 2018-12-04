@@ -6,11 +6,11 @@ class signup_model extends CI_model{
 		parent::__construct();
 	}
     
-	public function email_check($email){
+	public function user_check($username){
  
   		$this->db->select('*');
   		$this->db->from('company');
-  		$this->db->where('email',$email);
+  		$this->db->where('username',$username);
   		$query=$this->db->get();
  
   		if($query->num_rows()>0){
@@ -19,6 +19,20 @@ class signup_model extends CI_model{
     		return true;
   		}
 	}
+
+  public function email_check($email){
+ 
+      $this->db->select('*');
+      $this->db->from('company');
+      $this->db->where('email',$email);
+      $query=$this->db->get();
+ 
+      if($query->num_rows()>0){
+        return false;
+      }else{
+        return true;
+      }
+  }
 
 	public function email_check1($email){
  
@@ -52,6 +66,7 @@ class signup_model extends CI_model{
  	public function register_user(){
 
 		$user=array(
+        'username'=>$this->input->post('username'),
 	      'email'=>$this->input->post('email'),
 	      'companyname'=>$this->input->post('companyname'),
 	      'password'=>sha1($this->input->post('pass')),

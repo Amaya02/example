@@ -15,6 +15,9 @@ class homepage_control extends CI_Controller {
 		else if($this->session->userdata('validatedadmin')){
 			redirect('admin/dashboard');
 		}
+		else if($this->session->userdata('validatedtransac')){
+			redirect('transaction/queue');
+		}
 		else{
 			$data['title'] = "HOME";
 

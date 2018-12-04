@@ -33,10 +33,13 @@
                             <div class="col-sm-8 sign-form">
                                 <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process'>
                                     <div class="row">
-                                      <div class="col-sm-6">
+                                      <div class="col-sm-4">
+                                        <input required type="text" name="username" placeholder="Username" />
+                                      </div>
+                                      <div class="col-sm-4">
                                         <input required type="email" name="email" placeholder="Email Address" />
                                       </div>
-                                      <div class="col-sm-6">
+                                      <div class="col-sm-4">
                                         <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
                                       </div>
                                     </div>
@@ -333,7 +336,7 @@
           <div class="modal-body">
             <div class="form-group">
               <span class="glyphicon glyphicon-user"></span>
-              <input type="email" name="email" id="email" placeholder="Enter email" required />
+              <input type="text" name="username" id="username" placeholder="Enter Username" required />
               <br><span class="glyphicon glyphicon-lock"></span>
               <input type="password" id="password" name="password" placeholder="Enter password" required />
               <br><input class="form-check-input" type="checkbox" onclick="myFunction()" />Show Password

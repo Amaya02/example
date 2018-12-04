@@ -16,9 +16,15 @@ class login extends CI_Controller {
 			$this->load->model('user_model');
 			$result = $this->user_model->validatecompany();
 			if(! $result){
-				$base=base_url();
-				$this->session->set_flashdata('error_msg', 'Invalid email or password');
-				redirect($base);
+				$result = $this->user_model->validatetransaction();
+				if(! $result){
+					$base=base_url();
+					$this->session->set_flashdata('error_msg', 'Invalid username or password');
+					redirect($base);
+				}
+				else{
+					redirect('transaction');
+				}
 			}
 			else{
 				redirect('company');
@@ -30,7 +36,7 @@ class login extends CI_Controller {
 	}
 	
 	private function check_isValidated(){
-		$user = $this->input->post('email');
+		$user = $this->input->post('username');
 		$pass = $this->input->post('password');
 
 		if(strlen($user)==0 || strlen ($pass)==0){

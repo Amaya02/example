@@ -69,7 +69,7 @@
           <div class="modal-body">
             <div class="form-group">
               <span class="glyphicon glyphicon-user"></span>
-              <input type="email" name="email" id="email" placeholder="Enter email" required />
+              <input type="text" name="username" id="username" placeholder="Enter Username" required />
               <br><span class="glyphicon glyphicon-lock"></span>
               <input type="password" id="password" name="password" placeholder="Enter password" required />
               <br><input class="form-check-input" type="checkbox" onclick="myFunction()" /><b>Show Password</b>
