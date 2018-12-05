@@ -85,7 +85,9 @@ class user_model extends CI_Model {
             'tranacc' => $row->tranacc,
             'tranpass' => $row->tranpass,
             'transacname' => $row->transacname,
-            'transactime' => $row->transactime,
+            'starttime' => $row->starttime,
+            'endtime' => $row->endtime,
+            'estimatedtime' => $row->estimatedtime,
             'validatedtransac' => true,
             'validatedadmin' => false,
             'validatedcompany' => false);
@@ -109,7 +111,9 @@ class user_model extends CI_Model {
         'tranacc' => $r['tranacc'],
         'tranpass' => $r['tranpass'],
         'transacname' => $r['transacname'],
-        'transactime' => $r['transactime']    
+        'starttime' => $r['starttime'],
+        'endtime' => $r['endtime'],
+        'estimatedtime' => $r['estimatedtime'],
       );
       $transaction[] = $info;
     }
@@ -131,7 +135,6 @@ class user_model extends CI_Model {
   }
 
   public function addTransactions($companyid){
-    $time=$this->input->post('trantime1').' - '.$this->input->post('trantime2');
     $acc=$this->input->post('tranacc1').''.$this->input->post('tranacc');
 
     $transaction=array(
@@ -139,7 +142,9 @@ class user_model extends CI_Model {
       'tranacc' => $acc,
       'tranpass' => sha1($this->input->post('tranpass')),
       'transacname' => $this->input->post('tranname'),
-      'transactime' => $time
+      'starttime' => $this->input->post('trantime1'),
+      'endtime' => $this->input->post('trantime2'),
+      'estimatedtime' =>$this->input->post('estitime')
     );
     $this->db->insert('transaction', $transaction);
   }
@@ -168,8 +173,10 @@ class user_model extends CI_Model {
         $t['username']=$r->username;
         $t['transacname']=$r->transacname;
         $t['status']=$r->status;
-        $t['date']=$r->date_tran;
-        $t['time']=$r->time_tran;
+        $t['date_tran']=$r->date_tran;
+        $t['esti_date']=$r->esti_date;
+        $t['esti_start']=$r->esti_start;
+        $t['esti_end']=$r->esti_end;
         $t['result']=1;
       }
       

@@ -34,10 +34,11 @@
         <div class="col-sm-6">
           <p>Customer Name: <?php echo $traninfo['username']; ?></p>
           <p>Transaction Name: <?php echo $traninfo['transacname']; ?></p>
+          <p>Appointment Date: <?php echo $traninfo['esti_date']; ?> <?php echo $traninfo['esti_start']; ?> </p>
         </div>
         <div class="col-sm-6">
           <p>Status: <?php echo $traninfo['status']; ?></p>
-          <p>Date Generated: <?php echo $traninfo['date']; ?> - <?php echo $traninfo['time']; ?></p>
+          <p>Date Generated: <?php echo $traninfo['date_tran']; ?></p>
         </div>
       </div>
       <div class="row">

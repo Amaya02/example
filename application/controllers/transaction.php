@@ -16,8 +16,10 @@ class transaction extends CI_Controller {
 		$data['traninfo']['username']="";
 		$data['traninfo']['transacname']="";
 		$data['traninfo']['status']="";
-		$data['traninfo']['date']="";
-		$data['traninfo']['time']="";
+		$data['traninfo']['date_tran']="";
+		$data['traninfo']['esti_date']="";
+		$data['traninfo']['esti_start']="";
+		$data['traninfo']['esti_end']="";
 		$data['traninfo']['u_tranid']="";
 
 		$this->load->view("template/transaction/header",$data);
@@ -30,16 +32,7 @@ class transaction extends CI_Controller {
 		$data['title'] = "QUEUE";
 		$data['traninfo']=$this->user_model->getTransactionsInfo($this->input->post('tranid'));
 		if($data['traninfo']['result']==0){
-			$data['traninfo']['username']="";
-			$data['traninfo']['transacname']="";
-			$data['traninfo']['status']="";
-			$data['traninfo']['date']="";
-			$data['traninfo']['time']="";
-			$data['traninfo']['u_tranid']="";
-
-			$this->load->view("template/transaction/header",$data);
-			$this->load->view("template/transaction/queue",$data);
-			$this->load->view("template/transaction/footer");
+			redirect('transaction/queue','refresh');
 		}
 		else{
 			$this->load->view("template/transaction/header",$data);
@@ -54,7 +47,7 @@ class transaction extends CI_Controller {
 			redirect('transaction/queue','refresh');
 		}
 		else{
-			$this->user_model->doneTransactions($tranid,"expired");
+			$this->user_model->doneTransactions($tranid,"Expired");
 			$this->session->set_flashdata('success_msg', 'Done!');
 			redirect('transaction/queue','refresh');
 		}

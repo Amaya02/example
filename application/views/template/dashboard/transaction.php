@@ -39,6 +39,7 @@
                   <th>ACCOUNT NAME</th>
                   <th>TRANSACTION</th>
                   <th>TIME</th>
+                  <th>TRANSACTION TIME</th>
                   <th></th>
               </tr>
               </thead>
@@ -49,7 +50,8 @@
                         <td>'.$post['transacid'].'</td>
                         <td>'.$post['tranacc'].'</td>
                         <td>'.$post['transacname'].'</td>
-                        <td>'.$post['transactime'].'</td>
+                        <td>'.$post['starttime'].' - '.$post['endtime'].'</td>
+                        <td>'.$post['estimatedtime'].' Minutes </td>
                         <td>
                           <a class="btn-transact pull-right" href="" data-toggle="modal" data-target="#modalUpdate">
                           UPDATE
@@ -94,6 +96,10 @@
             <div class="form-group">
               <i class="glyphicon glyphicon-tasks"></i>
               <input type="text" placeholder="Transaction Name" name="tranname" required>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-time"></i>
+              <input type="text" placeholder="Estimated Time (minutes)" name="estitime" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
             </div>
             <div class="form-group">
               <i class="glyphicon glyphicon-time"></i>
