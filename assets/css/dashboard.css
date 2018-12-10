@@ -155,7 +155,7 @@ div.main {
 }
 
 div.main p{
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 div.com-name{
@@ -169,7 +169,7 @@ div.com-name{
 }
 
 div.com-name p.company{
-    font-size: 50px;
+    font-size: 25px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -235,7 +235,7 @@ a.small{
         margin: 0;
     }
     div.com-name p.company{
-        font-size: 5vw;
+        font-size: 2vw;
     }
 }
 
@@ -315,6 +315,10 @@ a.small{
         margin-bottom: 30px;
     }
 
+    div.com-name p.company{
+        font-size: 4vw;
+    }
+
 }
 
 @media screen and (max-width:520px) {
@@ -329,3 +333,653 @@ a.small{
 
 
 }
+
+/*TRANSACTION*/
+
+div.transac-content {
+    margin-left: 317px;
+    padding: 30px 16px;
+}
+
+div.transac-content div.container {
+   width:100%;
+}
+
+table thead tr th{
+    background-color:#f8a513;   
+    border: none;
+}
+
+table tr{
+    border: 3px solid #f8a513;
+}
+
+a.btn-transact{
+    text-decoration: none;
+    font-family: Copperplate Gothic;
+    color:black;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+a.btn-transact:hover{
+    color:#f8a513;  
+}
+
+div.border{
+   border: 3px solid #f8a513;
+   padding: 8px;
+   width: 70%;
+   height: 100%;
+}
+
+div.modal{
+   text-align: center;
+   position: absolute;
+   transform: translateX(6%);
+   top:100px;
+}
+
+.modal{
+   text-align: center;
+   position: absolute;
+   transform: translateX(6%);
+}
+
+.modal-body i{
+   color:black;
+   font-size: 1.8em;
+ }
+
+.modal-body{
+   margin-top:68px;
+}
+
+.modal-dialog {
+   top:0px;
+   margin: 6vh auto 0px auto;
+   display:inline-block;
+}
+
+.modal-content {
+   width:100%;
+   height: 100%;
+}
+
+.header{
+   padding: 3px;
+   margin-right: 5px;
+}
+
+input:focus {
+   outline:none;
+   border-bottom:3px solid #000;
+}
+
+input{
+   border: none;
+   border-bottom:3px solid #f8a513;
+   width: 80%;
+}
+
+input.time{
+    width: 37%;
+}
+
+input.TranA{
+  width: 40%;
+}
+
+
+.footer #btn-title{
+   color: black;
+   text-align: center;
+   position: relative;     
+   top: -385px;
+   padding:10px;
+   font-family:"Copperplate Gothic";
+   font-weight: bold;  
+   font-size: 30px;
+   font-color:black;
+   background-color: #f8a513;
+   border-radius: none;
+   border: none;
+   left: 5%;
+}
+
+.footer #btn-transac{
+   color: black;
+   border: none;
+   border-radius:7px;
+   background-color: #f8a513;
+   font-family:"Copperplate Gothic";
+   font-weight: bold;      
+   font-size: 1.1em !important;
+   text-align: center;
+   position: relative;     
+   right:20px;
+   bottom: 10px;
+}
+
+.footer #btn-title-up{
+   color: black;
+   text-align: center;
+   position: relative;     
+   top: -395px;
+   padding:10px;
+   font-family:"Copperplate Gothic";
+   font-weight: bold;  
+   font-size: 25px;
+   font-color:black;
+   background-color: #f8a513;
+   border-radius: none;
+   border: none;
+   left: 8%;
+}
+
+.footer #btn-transac-up{
+   color: black;
+   border: none;
+   border-radius:7px;
+   background-color: #f8a513;
+   font-family:"Copperplate Gothic";
+   font-weight: bold;      
+   font-size: 1.1em !important;
+   text-align: center;
+   position: relative;     
+   bottom: 10px;
+   right: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+    div.transac-content {
+        margin-left: 250px;
+    }
+
+    .modal-dialog{
+        left: 35px;
+    }
+}
+
+@media screen and (max-width: 995px) {
+    div.transac-content {
+        margin-left: 0px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .modal-dialog{
+        left: 35px;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .modal-dialog{
+        width:79%;
+        left:40px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    div.transac-content{
+        padding:30px 0px!important;
+    }
+
+    .modal-dialog{
+        left:0px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .modal-dialog{
+        width:126%;
+    }
+
+    .footer #btn-title {
+        top: -333px;
+        padding: 3px;
+        font-size: 27px;
+    }
+    
+    .footer #btn-transac{
+        left: 140px!important;
+    }
+    
+    table{
+        margin-top:10px;
+    }
+
+    table th, td{
+        display: inline-block;
+    }
+
+    div.transac-content{
+        padding:0px 0px!important;
+    }
+
+    .modal-dialog{
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 375px){
+    .footer #btn-title {
+        top: -325px;
+        padding: 1px;
+        font-size:23px;
+    }
+
+    .footer #btn-transac{
+        left: 118px!important;
+    }
+
+    .modal-dialog{
+        left: 0px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .footer #btn-title {
+        top: -323px;
+        padding: 2px;
+        font-size: 19px
+    }
+
+    .footer #btn-transac{
+        left: 93px!important;
+    }
+
+    .modal-dialog{
+        left: 0px;
+    }
+}
+
+/*QUEUE*/
+div.queue-container {
+width: 50%;
+height: 550px;
+transform: translateX(25%);
+}
+div.queue-title {
+    width: 100%;
+    margin-top: 40px;
+    text-align: center;
+    font-family: "Copperplate Gothic";
+    font-size: 45px;
+    font-weight: bold;
+}
+
+
+div.queue-main {
+    width: 90%;
+    height: 300px;
+    margin: auto;
+    background-color: #f8a513;
+    text-align: center;
+    font-family: "Copperplate Gothic";
+    font-size: 200px;
+}
+
+div.queue-main .id{
+  background: none;
+}
+
+div .info{
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+div .info p{
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: left;
+}
+
+.queue-btn-toolbar{
+margin-top: 30px;
+}
+
+a.queue-next {
+    margin-top: 20px;
+    width: 15%;
+    height:50px;
+    background-color: white;
+    border: 5px #f8a513 solid;
+    border-radius: 9px;
+    font-size: 24px;
+    font-family: Copperplate Gothic;
+    font-weight: bold;
+    padding: 5px;
+}
+@media screen and (max-width: 1024px) {
+div.queue-container {
+width: 80%;
+transform: translateX(16%);
+}
+div.queue-main {
+    width: 60%;
+}
+button.queue-next {
+    margin-left: 340px;
+}
+}
+@media screen and (max-width: 768px) {
+div.queue-container {
+width: 100%;
+transform: translateX(0%);
+}
+div.queue-main {
+    width: 60%;
+}
+button.queue-next {
+    margin-left: 320px;
+}
+}
+@media screen and (max-width: 425px) {
+div.queue-title {
+    font-size: 48px;
+}
+div.queue-main {
+    width: 100%;
+    height: 230px;
+    font-size: 150px;
+}
+button.queue-next {
+    margin: 5px 0px;
+    width: 100%;
+    font-size: 24px;
+}
+}
+@media screen and (max-width: 375px) {
+div.queue-title {
+    font-size: 40px;
+}
+div.queue-main {
+    width: 100%;
+    height: 150px;
+    font-size: 100px;
+}
+}
+@media screen and (max-width: 320px) {
+div.queue-main {
+    width: 100%;
+    height: 150px;
+    font-size: 100px;
+}
+}
+
+/*SETTING*/
+div.wrapper-dash div.content div.container{
+    margin:0;
+    width: auto;
+}
+div.main-wrap{
+    text-align: center;
+}
+div.setting-main {
+    height: 400px;
+    width: 80%;
+    padding-top: 35px;
+    background-color: #f8a513;
+    border: 5px solid #f8a513;
+    margin-top: 35px;
+    border-radius: 10px;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.setting-form {
+    margin: 10px 0px;
+}
+.setting-form2 {
+    margin: 10px 0px;
+}
+.setting-main input[type=text], select#country, textarea,
+input[type=email] {
+    width: 100%;
+    padding: 10px;
+    background-color: #f8a513;
+    border: none;
+    border-bottom: 5px solid #000;
+    font-family: Constantia;
+    font-size: 18px;
+}
+div.setting-btn-toolbar {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+}
+.setting-pass {
+    height:40px;
+    background-color: white;
+    border: 3px black solid;
+    border-radius: 9px;
+    font-size: 16px;
+    font-family: Copperplate Gothic;
+}
+
+a.setting-pass{
+  padding: 8px;
+  color: #000000;
+}
+
+a.setting-pass:hover{
+text-decoration: none;
+}
+
+button.setting-acc {
+    height:40px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 9px;
+    font-size: 16px;
+    font-family: Copperplate Gothic;
+    
+}
+button.setting-btn-save {
+   color: black;
+   border: none;
+   border-radius:7px;
+   width: 18%;
+   height: 30px;
+   background-color: #f8a513;
+   font-family:"Copperplate Gothic";
+   font-size: 16px;
+   position: relative;  
+   margin-left: 300px; 
+   margin-bottom: 15px;  
+}
+
+div#setting-title{
+   color: black;
+   text-align: center;
+   position: relative; 
+   width: 338px;
+   left: 7%;    
+   top: -280px;
+   padding:10px;
+   font-family:"Copperplate Gothic"; 
+   font-size: 24px;
+   font-color:black;
+   background-color: #f8a513;
+   border-radius: none;
+   border: none;
+}
+
+div.setting-border {
+   border: 3px solid #f8a513;
+   padding: 5px;
+   width: 70%;
+   height: 100%;
+}
+
+div.setting-header {
+   margin-right: 5px;
+
+}
+
+.modal{
+   text-align: center;
+   position: absolute;
+   transform: translateX(6%);
+   top:100px;
+}
+
+div.setting-mod-body i{
+   color:black;
+   font-size: 1.8em;
+ }
+
+div.setting-mod-body {
+   margin-top: 70px;
+}
+
+div.setting-mod-content {
+   width: 100%;
+   height: 100%;
+}
+
+div.setting-mod-dias {
+   left: 170px;
+   top: 40px;
+   display:inline-block;
+}
+
+div.setting-mod-body div.setting-form-grp .show-pass:focus {
+   outline:none;
+   border-bottom:3px solid #000;
+}
+div.setting-mod-body div.setting-form-grp .show-pass {
+   border: none;
+   border-bottom:5px solid #f8a513;
+   width: 90%;
+   font-size: 20px;
+   font-family: Constantia;
+   font-weight: bold;
+   margin-top: 10px;
+}
+div.setting-form-chck {
+    font-size: 14px;
+    font-family: Constantia;
+    transform: translateX(-26%);
+}
+@media screen and (max-width: 1024px) {
+div.setting-btn-toolbar {
+    width: 100%;
+    transform: translateX(-10%);
+}
+button.setting-pass {
+    width: 40%;
+    margin: 0px;
+}
+button.setting-acc {
+    width: 40%;
+}
+div.setting-border {
+   transform: translateX(-3%);
+}
+}
+@media screen and (max-width: 768px) {
+div.setting-main {
+    height: 380px;
+    width: 100%;
+    margin-top: 15px;
+}
+div.setting-btn-toolbar {
+    width: 100%;
+}
+button.setting-pass {
+    width: 50%;
+}
+button.setting-acc {
+    width: 49%;
+}
+div.setting-border {
+   transform:translateX(-30%);
+   margin-top: 20px;
+   height: 80%;
+}
+}
+@media screen and (max-width: 425px) {
+div.setting-main {
+    width: 100%;
+    height: 450px;
+    margin-top: 15px;
+}
+button.setting-pass {
+    width: 100%;
+    margin-top: 5px;
+}
+button.setting-acc {
+    width: 100%;
+    margin-top: 5px;
+}
+div.setting-border {
+   width: 95%;
+   transform: translateX(-51%);
+   margin-top: 130px; 
+}
+div.setting-form-chck {
+    font-size: 14px;
+    font-family: Constantia;
+    transform: translateX(-22%);
+}
+button.setting-btn-save {
+   width: 90%;
+   height: 35px;
+   font-size: 16px; 
+   transform: translateX(-93%);
+}
+div#setting-title{
+  width: 105%;
+  top: -303px;
+  transform: translateX(-9%);
+  font-size: 20px;
+}
+}
+@media screen and (max-width: 375px) {
+div.setting-border {
+  width: 80%;
+  transform: translateX(-54.5%);
+  margin-top: 235px;
+}
+div.setting-form-chck {
+    font-size: 14px;
+    font-family: Constantia;
+    transform: translateX(-17%);
+}
+div#setting-title{
+  width: 304px;
+  top: -303px;
+  transform: translateX(-9.5%);
+  font-size: 20px;
+}
+button.setting-btn-save {
+   transform: translateX(-112%);
+}
+}
+@media screen and (max-width: 320px) {
+div.setting-border {
+  width: 70%;
+  transform: translateX(-64%);
+  margin-top: 225px;
+}
+div#setting-title
+{
+  width: 265px;
+  top: -303px;
+  transform: translateX(-10%);
+  font-size: 20px;
+}
+div.setting-form-chck {
+    font-size: 14px;
+    font-family: Constantia;
+    transform: translateX(-13%);
+}
+button.setting-btn-save {
+   transform: translateX(-130%);
+}
+}
+

@@ -1,92 +1,28 @@
-html,body{
-      height:100%;
-}
-header {
-      width: 100%;
-      height: 80px;
-      background: black;
-      }  
 
-.logo{
-	float: left;
-	height:110px;
-}
-.bg {
+.bg-signup {
   background-color: #4b4b4b;
-  padding: 50px;
+  padding: 5% 50px 9% 50px;
+  
 }
-.border {
+.bg-signup .border {
   border: 3px solid #f8a513;
   padding: 10px;
 }
-.bgwhite {
+.bg-signup .bgwhite {
   background-color: #ffffff;
   padding: 20px;
 }
-.col-sm-4 {
+.bg-signup .add-side {
   background-color:black;
   height:250px;
   font-color: #f8a513;
   font-size: 36px;
 }
-.col-sm-8 {
+.bg-signup .sign-form{
   background-color:white;
 }
-nav {
-      z-index: 1;
-      width: 100%;
-	overflow:hidden;
-}
 
-nav ul {
-      line-height: 90px;
-      color: #fff;
-      text-align: right;
-      padding-right: 20px;
-}
-
-nav ul li a {
-	list-style: none;
-	text-decoration:none !important;
-      cursor: pointer;
-}
-
-nav ul li {
-      display: inline-block;
-      padding: 12px;
-}
-
-nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-family:"Copperplate Gothic";
-	  font-weight: bold;
-	  font-size: 1.2em;
-}
-
-nav ul li a:hover{
-      color:#f8a513;
-}
-
-nav ul li a:focus {
-      color:#f8a513;
-}
-
-.menu-icon {
-      line-height: 85px;
-      background: #000;
-      text-align: right;
-      box-sizing: border-box;
-      padding-right: 20px;
-      cursor: pointer;
-      color: #fff;
-      display: none;
-}
-
- * {
-    box-sizing: border-box;
-}
-.col-top { 
+.bg-signup .col-top { 
 background-color: #f8ab13; 
 position: relative; 
 left: 50%;
@@ -99,17 +35,22 @@ font-family: Copperplate Gothic;
 font-size: 18pt;
 }
 
-input[type=text], input[type=password], select, textarea {
+.sign-form input[type=text], .sign-form input[type=email], .sign-form input[type=password], .sign-form select, .sign-form textarea {
     width: 100%;
     padding: 12px;
     border: none;
-    border-bottom: 3px solid #000;
+    border-bottom: 3px solid #f8a513;
     resize: vertical;
     outline: none;
 }
 
+.sign-form input:focus {
+   outline:none;
+   border-bottom:3px solid #000;
+}
 
-input[type=submit] {
+
+.sign-form .btn-submit {
     background-color: #f8a513;
     color: black;
     padding: 10px;
@@ -119,14 +60,14 @@ input[type=submit] {
     float: right;
     font-family: Copperplate Gothic Bold;
     font-size: 14pt;
+    margin-right: 15px;
 }
 
-input[type=submit]:hover {
+.sign-form .btn-submit:hover {
     background-color: #ddd;
 }
 
-.back {
-    background-color: #fff;
+.sign-form a.back {
     color: black;
     padding: 20px 0px 10px;
     border: none;
@@ -139,76 +80,34 @@ input[type=submit]:hover {
     font-size: 11pt;
 }
 
-.back:hover {
-    background-color: #ddd;
-}
 
-.container {
-    border-radius: 5px;
-    padding: 20px;
-}
 
 
 @media(max-width:1054px){
-  .col-top { 
+  .bg-signup .col-top { 
     left: 0;
     top: 0;
     width: 100%; 
     height: 100%;
     }
+
+    .bg-signup{
+    padding: 20px;
+   }
+
 }
 
-
-@media(max-width: 895px) {
-      .hide{
-            display:none;
-      }
-
-      .logo {
-            position: absolute;
-            top: 5px;
-      }
-      nav {
-      	position: absolute;
-      	z-index:1;
-      }
-
-      nav ul {
-            max-height: 0px;
-            background: #000;
-      }
-
-      .showing {
-            max-height: 28em;
-      }
-
-      nav ul li {
-		        margin-top:0;
-		        margin-top:0;
-            box-sizing: border-box;
-            width: 100%;
-            padding: 0px;
-            text-align: center;
-      }
-
-      nav ul li a{
-      	display: block;
-      }
-      .menu-icon {
-            display: block;
-      }	  
-}
 
 @media(max-width:768px){
- .bg{
-  padding: 15px;
+ .bg-signup{
+  padding: 10px;
  }
  
- input[type=submit] {
+ .sign-form .btn-submit {
     margin-top:10px;
     font-size: 10pt;
 }
-.bgwhite {
+.bg-signup .bgwhite {
   padding: 10px 20px;
 }
 }
