@@ -53,7 +53,7 @@
                         <td>'.$post['starttime'].' - '.$post['endtime'].'</td>
                         <td>'.$post['estimatedtime'].' Minutes </td>
                         <td>
-                          <a class="btn-transact pull-right" href="" data-toggle="modal" data-target="#modalUpdate">
+                          <a href="#modalUpdate" class="btn-transact pull-right" data-toggle="modal" data-userid="'.$post['transacid'].'" data-name="'.$post['transacname'].'" data-stime="'.$post['starttime'].'" data-etime="'.$post['endtime'].'" data-estime="'.$post['estimatedtime'].'">
                           UPDATE
                           <i class="pull-left glyphicon glyphicon-edit"></i>
                         </a>
@@ -125,8 +125,11 @@
         <div class="header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
-        <form>
+        <form action="<?php echo base_url(); ?>company/updatetransaction" autocomplete="off" enctype="multipart/form-data" role="form" method="post">
           <div class="modal-body">
+            <div class="form-group">
+                <input type="hidden" name="user_id" id="user_id" value="" />
+            </div>
             <div class="form-group">
               <i class="glyphicon glyphicon-user"></i>
               <input class="TranA" type="text" value="<?php echo $metadata['username']; ?>@"" name="tranacc1" readonly>
@@ -134,17 +137,21 @@
             </div>
             <div class="form-group">
               <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" placeholder="password" name="acpass" required>
+              <input type="password" placeholder="Password" name="tranpass" required>
             </div>
             <div class="form-group">
               <i class="glyphicon glyphicon-tasks"></i>
-              <input type="text" placeholder="Transaction Name" name="tname" required>
+              <input type="text" placeholder="Transaction Name" name="tranname" id="tranname" required>
             </div>
             <div class="form-group">
               <i class="glyphicon glyphicon-time"></i>
-              <input class="time" type="time" class="time"/>
+              <input type="text" placeholder="Estimated Time (minutes)" id="estitime" name="estitime" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-time"></i>
+              <input class="time" type="time" name="trantime1" id="trantime1" required="" />
               <label>TO</label> 
-              <input class="time" type="time" class="time"/>
+              <input class="time" type="time" name="trantime2" id="trantime2" required="" />
             </div>
           </div>
           <div class="footer">
@@ -158,7 +165,3 @@
 </div>
 
 </div>
-
-<script type="text/javascript">
-  $('#btn-title').attr('disabled', 'disabled');
-</script>

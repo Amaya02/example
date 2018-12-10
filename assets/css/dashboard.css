@@ -392,7 +392,7 @@ div.modal{
  }
 
 .modal-body{
-   margin-top:78px;
+   margin-top:68px;
 }
 
 .modal-dialog {
@@ -435,7 +435,7 @@ input.TranA{
    color: black;
    text-align: center;
    position: relative;     
-   top: -400px;
+   top: -385px;
    padding:10px;
    font-family:"Copperplate Gothic";
    font-weight: bold;  
@@ -465,7 +465,7 @@ input.TranA{
    color: black;
    text-align: center;
    position: relative;     
-   top: -340px;
+   top: -395px;
    padding:10px;
    font-family:"Copperplate Gothic";
    font-weight: bold;  
@@ -736,7 +736,8 @@ div.setting-main {
 .setting-form2 {
     margin: 10px 0px;
 }
-.setting-main input[type=text], select#country, textarea {
+.setting-main input[type=text], select#country, textarea,
+input[type=email] {
     width: 100%;
     padding: 10px;
     background-color: #f8a513;
@@ -750,20 +751,27 @@ div.setting-btn-toolbar {
     margin-left: 10%;
     margin-top: 5px;
 }
-button.setting-pass {
-    width: 25%;
+.setting-pass {
     height:40px;
     background-color: white;
     border: 3px black solid;
     border-radius: 9px;
     font-size: 16px;
     font-family: Copperplate Gothic;
-    margin-left: 54.5%;
 }
+
+a.setting-pass{
+  padding: 8px;
+  color: #000000;
+}
+
+a.setting-pass:hover{
+text-decoration: none;
+}
+
 button.setting-acc {
-    width: 20%;
     height:40px;
-    background-color: #f8a513;
+    background-color: #ffffff;
     border: none;
     border-radius: 9px;
     font-size: 16px;
