@@ -5,7 +5,7 @@
             </div>
                 <a href="<?php echo base_url(); ?>"><img class="logo" src="<?php echo base_url('assets/images/LOGO.png'); ?>"></a>
                               <ul class="menu">
-                                  <li><a href="">HOME</a></li>
+                                  <li><a href="#home">HOME</a></li>
                                   <li><a href="#aboutus">ABOUT US</a></li>
                                   <li><a href="#contactus">CONTACT US</a></li>
                                   <li class="d-hide">|</li>

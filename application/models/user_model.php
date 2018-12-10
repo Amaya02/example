@@ -239,6 +239,20 @@ class user_model extends CI_Model {
       }
   }
 
+  public function user_check1($username){
+ 
+      $this->db->select('*');
+      $this->db->from('admin');
+      $this->db->where('username',$username);
+      $query=$this->db->get();
+ 
+      if($query->num_rows()>0){
+        return false;
+      }else{
+        return true;
+      }
+  }
+
   public function email_check($email,$id){
  
       $this->db->select('*');

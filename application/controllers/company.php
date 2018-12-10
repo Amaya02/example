@@ -63,20 +63,28 @@ class company extends CI_Controller {
 
 	public function saveupdateaccount(){
 		$data['metadata']=$this->session->userdata();
-		$check=$this->user_model->user_check($this->input->post('username'),$data['metadata']['companyid']);
+
+		$check=$this->user_model->user_check1($this->input->post('username'));
 		if($check){
-			$email_check=$this->user_model->email_check($this->input->post('email'),$data['metadata']['companyid']);
-			if($email_check){
-				$email_check1=$this->user_model->email_check1($this->input->post('email'));
-				if($email_check1){
-					$check=$this->user_model->checkcompanyname($data['metadata']['companyid']);
-					if($check){
-						$this->user_model->update_user($data['metadata']['companyid']);
-						$this->session->set_flashdata('success_msg', 'Updated successfully!');
-						redirect('company/setting','refresh');
+			$check=$this->user_model->user_check($this->input->post('username'),$data['metadata']['companyid']);
+			if($check){
+				$email_check=$this->user_model->email_check($this->input->post('email'),$data['metadata']['companyid']);
+				if($email_check){
+					$email_check1=$this->user_model->email_check1($this->input->post('email'));
+					if($email_check1){
+						$check=$this->user_model->checkcompanyname($data['metadata']['companyid']);
+						if($check){
+							$this->user_model->update_user($data['metadata']['companyid']);
+							$this->session->set_flashdata('success_msg', 'Updated successfully!');
+							redirect('company/setting','refresh');
+						}
+						else{
+							$this->session->set_flashdata('error_msg', 'Company Name already exist!');
+							redirect('company/setting','refresh');
+						}
 					}
 					else{
-						$this->session->set_flashdata('error_msg', 'Company Name already exist!');
+						$this->session->set_flashdata('error_msg', 'Email Address already exist!');
 						redirect('company/setting','refresh');
 					}
 				}
@@ -86,7 +94,7 @@ class company extends CI_Controller {
 				}
 			}
 			else{
-				$this->session->set_flashdata('error_msg', 'Email Address already exist!');
+				$this->session->set_flashdata('error_msg', 'Username already exist!');
 				redirect('company/setting','refresh');
 			}
 		}
