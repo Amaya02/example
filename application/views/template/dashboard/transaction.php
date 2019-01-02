@@ -23,6 +23,11 @@
         </a>
       </li>
       <li>
+        <a href="<?php echo base_url(); ?>company/mobileusers">MOBILE USERS
+          <i class="pull-left glyphicon glyphicon-user"></i>
+        </a>
+      </li>
+      <li>
         <a href="<?php echo base_url(); ?>company/setting">SETTING
           <i class="pull-left glyphicon glyphicon-cog"></i>
         </a>

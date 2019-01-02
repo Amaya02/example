@@ -3,7 +3,12 @@
     <ul class="sidenav">
        <li>
         <a class="active" href="<?php echo base_url(); ?>transaction/queue">
-          <i class="pull-left glyphicon glyphicon-home"></i>QUEUE
+          <i class="pull-left glyphicon glyphicon-list"></i>QUEUE
+        </a>
+      </li>
+      <li>
+        <a href="<?php echo base_url(); ?>transaction/mobileusers">
+          <i class="pull-left glyphicon glyphicon-user"></i>MOBILE USERS
         </a>
       </li>
     </ul>
@@ -32,8 +37,7 @@
     <div class="info">
       <div class="row">
         <div class="col-sm-6">
-          <p>Customer Name: <?php echo $traninfo['username']; ?></p>
-          <p>Transaction Name: <?php echo $traninfo['transacname']; ?></p>
+          <p>Customer Name: <?php echo $traninfo['fname']; ?> <?php echo $traninfo['lname']; ?></p>
           <p>Appointment Date: <?php echo $traninfo['esti_date']; ?> <?php echo $traninfo['esti_start']; ?> </p>
         </div>
         <div class="col-sm-6">

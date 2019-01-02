@@ -86,7 +86,8 @@ class signup_model extends CI_model{
 	      'password'=>sha1($this->input->post('pass')),
 	      'address'=>$this->input->post('address'),
 		  'country'=>$_POST['country'],
-	      'cnumber'=>$this->input->post('cnumber')
+	      'cnumber'=>$this->input->post('cnumber'),
+        'tnumber'=>$this->input->post('tnumber')
 		);
 		$this->db->insert('company', $user);
 	}

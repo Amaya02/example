@@ -12,6 +12,11 @@
         </a>
       </li>
       <li>
+        <a href="<?php echo base_url(); ?>company/mobileusers">MOBILE USERS
+          <i class="pull-left glyphicon glyphicon-user"></i>
+        </a>
+      </li>
+      <li>
         <a href="<?php echo base_url(); ?>company/setting">SETTING
           <i class="pull-left glyphicon glyphicon-cog"></i>
         </a>
@@ -30,6 +35,7 @@
                         <p><b>Country: </b><?php echo $metadata['country']; ?></p>
                         <p><b>Address: </b><?php echo $metadata['address']; ?></p>
                         <p><b>Contact No: </b><?php echo $metadata['cnumber']; ?></p>
+                        <p><b>TIN No: </b><?php echo $metadata['tnumber']; ?></p>
                     </div>
                     <div class="com-name">
                         <p class="company"><b><?php echo $metadata['companyname']; ?></b></p>

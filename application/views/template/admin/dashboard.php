@@ -12,7 +12,7 @@
         </a>
       </li>
       <li>
-        <a href="<?php echo base_url(); ?>admin/users">
+        <a href="<?php echo base_url(); ?>admin/mobileusers">
           <i class="pull-left glyphicon glyphicon-home"></i>MOBILE USERS
         </a>
       </li>
@@ -34,7 +34,7 @@
                         <p><b>Email Address: </b><?php echo $metadata['email']; ?></p>
                         <p><b>Country: </b><?php echo $metadata['country']; ?></p>
                         <p><b>Address: </b><?php echo $metadata['address']; ?></p>
-                        <p><b>Contact No: </b><?php echo $metadata['cnumber']; ?></p>
+                        <p><b>Contact No: </b><?php echo $metadata['cnum']; ?></p>
                     </div>
                     <div class="com-name">
                         <p class="company"><b><?php echo $metadata['username']; ?></b></p>
@@ -52,7 +52,7 @@
                     <div class="main-queue">
                         <div class="queue-in">
                             <p class="big"><b>MOBILE USERS</b></p>
-                            <a class="small" href="<?php echo base_url(); ?>admin/users"><b>VIEW MOBILE USERS ></b></a>
+                            <a class="small" href="<?php echo base_url(); ?>admin/mobileusers"><b>VIEW MOBILE USERS ></b></a>
                         </div>
                     </div>
                 </div>

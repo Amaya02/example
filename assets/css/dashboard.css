@@ -149,7 +149,7 @@ div.main {
     border-radius: 10px;
     text-align: center;
     display: inline-block;
-    padding-top: 180px;
+    padding-top: 170px;
     font-size: 20px;
     text-transform: uppercase;
 }
@@ -982,4 +982,29 @@ button.setting-btn-save {
    transform: translateX(-130%);
 }
 }
+
+/*ADMIN*/
+.wrapper-admin .company-name{
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+.wrapper-admin .company-info{
+  border: 2px solid black;
+  background: #f8a513;
+  padding: 10px;
+
+}
+
+.wrapper-admin .tran-info{
+  font-size: 25px;
+
+}
+
+div.wrapper-admin div.content div.container{
+    margin:0;
+    width: auto;
+}
+
+
 

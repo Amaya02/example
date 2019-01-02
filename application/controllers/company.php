@@ -29,6 +29,16 @@ class company extends CI_Controller {
 		$this->load->view("template/dashboard/footer");	
 	}
 
+	public function mobileusers(){
+		$data['metadata']=$this->session->userdata();
+		$data['title'] = "MOBILE USERS";
+		$data['transactions'] = $this->user_model->getUsers($data['metadata']['companyid']);
+
+		$this->load->view("template/dashboard/header",$data);
+		$this->load->view("template/dashboard/mobileusers",$data);
+		$this->load->view("template/dashboard/footer");	
+	}
+
 	public function setting(){
 		$data['metadata']=$this->session->userdata();
 		$data['title'] = "SETTING";

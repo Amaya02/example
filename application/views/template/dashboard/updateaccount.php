@@ -12,6 +12,11 @@
         </a>
       </li>
       <li>
+        <a href="<?php echo base_url(); ?>company/mobileusers">MOBILE USERS
+          <i class="pull-left glyphicon glyphicon-user"></i>
+        </a>
+      </li>
+      <li>
         <a class="active" href="<?php echo base_url(); ?>company/setting">SETTING
           <i class="pull-left glyphicon glyphicon-cog"></i>
         </a>
@@ -53,6 +58,9 @@
                   <input required type="text" name="cnumber" placeholder="Phone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnumber'];?>" />
               </div>
               <div class="col-sm-6 setting-form">
+                  <input required type="text" name="tnumber" placeholder="TIN Number" value="<?php echo $metadata['tnumber'];?>" />
+              </div>
+              <div class="col-sm-12 setting-form">
                   <a href="<?php echo base_url(); ?>company/setting" class="setting-pass"><b>Back</b></a>
                   <button type="submit" class="setting-acc">Save</button>
               </div>

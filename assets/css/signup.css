@@ -61,6 +61,7 @@ font-size: 18pt;
     font-family: Copperplate Gothic Bold;
     font-size: 14pt;
     margin-right: 15px;
+    margin-top: 10px; 
 }
 
 .sign-form .btn-submit:hover {
@@ -78,6 +79,7 @@ font-size: 18pt;
     height: 45px;
     font-family: Copperplate Gothic Bold;
     font-size: 11pt;
+    margin-top:4px; 
 }
 
 

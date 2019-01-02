@@ -13,13 +13,12 @@ class transaction extends CI_Controller {
 	public function queue(){
 		$data['metadata']=$this->session->userdata();
 		$data['title'] = "QUEUE";
-		$data['traninfo']['username']="";
-		$data['traninfo']['transacname']="";
+		$data['traninfo']['fname']="";
+		$data['traninfo']['lname']="";
 		$data['traninfo']['status']="";
 		$data['traninfo']['date_tran']="";
 		$data['traninfo']['esti_date']="";
 		$data['traninfo']['esti_start']="";
-		$data['traninfo']['esti_end']="";
 		$data['traninfo']['u_tranid']="";
 
 		$this->load->view("template/transaction/header",$data);
@@ -27,10 +26,20 @@ class transaction extends CI_Controller {
 		$this->load->view("template/transaction/footer");	
 	}
 
+	public function mobileusers(){
+		$data['metadata']=$this->session->userdata();
+		$data['title'] = "MOBILE USERS";
+		$data['transactions'] = $this->user_model->getUsers2($data['metadata']['transacid']);
+
+		$this->load->view("template/transaction/header",$data);
+		$this->load->view("template/transaction/mobileusers",$data);
+		$this->load->view("template/transaction/footer");
+	}
+
 	public function getTranInfo(){
 		$data['metadata']=$this->session->userdata();
 		$data['title'] = "QUEUE";
-		$data['traninfo']=$this->user_model->getTransactionsInfo($this->input->post('tranid'));
+		$data['traninfo']=$this->user_model->getTransactionsInfo($this->input->post('tranid'),$data['metadata']['transacid']);
 		if($data['traninfo']['result']==0){
 			redirect('transaction/queue','refresh');
 		}
