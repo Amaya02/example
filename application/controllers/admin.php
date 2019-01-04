@@ -13,6 +13,8 @@ class admin extends CI_Controller {
 	public function dashboard(){
 		$data['metadata']=$this->session->userdata();
 		$data['title'] = "DASHBOARD";
+		$data['company']['num_com'] = $this->admin_model->getCompany2();
+		$data['userinfo']['num_user'] =$this->admin_model->getUsers2();
 
 		$this->load->view("template/admin/header",$data);
 		$this->load->view("template/admin/dashboard",$data);

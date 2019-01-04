@@ -20,6 +20,10 @@
   });
 });
 
+  function tick(el){
+      $(".show-pass").attr('type', el.checked ? 'text':'password');
+      }
+
 </script>
 
 <script type="text/javascript">

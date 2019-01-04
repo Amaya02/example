@@ -121,6 +121,16 @@ class user_model extends CI_Model {
     return $transaction;
   }
 
+  public function getTransactions0($companyid){
+    $transaction = array();
+    $this->db->select('*');
+    $this->db->from('transaction');
+    $this->db->where('companyid',$companyid);
+    //run the query
+    $query = $this->db->get();
+    return $query->num_rows();
+  }
+
   public function getUsers($companyid){
     $users = array();
     $this->db->select('*');
@@ -146,6 +156,19 @@ class user_model extends CI_Model {
       $users[] = $info;
     }
     return $users;
+  }
+
+  public function getUsers0($companyid){
+    $users = array();
+    $this->db->select('*');
+    $this->db->from('user_transac');
+    $this->db->join('users','user_transac.userid = users.id');
+    $this->db->join('transaction','user_transac.transacid = transaction.transacid');
+    $this->db->where('companyid',$companyid);
+    //run the query
+    $query = $this->db->get();
+    return $query->num_rows();
+    
   }
 
   public function getUsers2($transacid){

@@ -2,6 +2,9 @@
 <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
 <script type="text/javascript">
+  function tick(el){
+      $(".show-pass").attr('type', el.checked ? 'text':'password');
+      }
   function myFunction() {
   // Declare variables 
   var input, filter, table, tr, td, i, txtValue;

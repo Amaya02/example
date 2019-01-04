@@ -1,64 +1,90 @@
-<div class="wrapper-dash">
-  <nav>
-    <ul class="sidenav">
-       <li>
-        <a class="active" href="<?php echo base_url(); ?>admin/dashboard">
-          <i class="pull-left glyphicon glyphicon-home"></i>DASHBOARD
-        </a>
-      </li>
-      <li>
-        <a href="<?php echo base_url(); ?>admin/companies">
-          <i class="pull-left glyphicon glyphicon-home"></i>COMPANIES
-        </a>
-      </li>
-      <li>
-        <a href="<?php echo base_url(); ?>admin/mobileusers">
-          <i class="pull-left glyphicon glyphicon-home"></i>MOBILE USERS
-        </a>
-      </li>
-      <li>
-        <a href="<?php echo base_url(); ?>admin/setting">
-          <i class="pull-left glyphicon glyphicon-home"></i>SETTING
-        </a>
-      </li>
-    </ul>
-  </nav>
+<div class="wrapper">
 
-  <div class="content">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-8">
-          <div class="main-wrap">
-                    <div class="main">
-                        <p><b>Username: </b><?php echo $metadata['fname']; ?> <?php echo $metadata['lname']; ?></p>
-                        <p><b>Email Address: </b><?php echo $metadata['email']; ?></p>
-                        <p><b>Country: </b><?php echo $metadata['country']; ?></p>
-                        <p><b>Address: </b><?php echo $metadata['address']; ?></p>
-                        <p><b>Contact No: </b><?php echo $metadata['cnum']; ?></p>
-                    </div>
-                    <div class="com-name">
-                        <p class="company"><b><?php echo $metadata['username']; ?></b></p>
-                    </div>
+<!-- Sidebar -->
+  <div class="sidebar">
+    <a class="sidebar-trigger" href="#0">
+       <i class="glyphicon glyphicon-align-justify"></i>
+    </a>
+
+    <nav class="sidebar-nav">
+       <ul>
+        <li>
+          <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>admin/dashboard">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>DASHBOARD</em>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/companies">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>COMPANIES</em>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/mobileusers">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>MOBILE USERS</em>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/setting">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>SETTING</em>
+          </a>
+        </li>
+       </ul>
+    </nav>
+  </div>
+
+  <main class="wrapper-content">
+    <div class="company-dash">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="company-info">
+              <p class="company-name"><?php echo $metadata['fname']; ?> <?php echo $metadata['lname']; ?></p>
+              <p class="company-username"><b>@<?php echo $metadata['username']; ?></b></p>
             </div>
+          </div>
         </div>
-        <div class="col-lg-4 col-md-4">
-          <div class="but-wrap">
-                    <div class="main-trans">
-                        <div class="trans-in">
-                            <p class="big"><b>COMPANIES</b></p>
-                            <a class="small" href="<?php echo base_url(); ?>admin/companies"><b>VIEW COMPANIES ></b></a>
-                        </div>
-                    </div>
-                    <div class="main-queue">
-                        <div class="queue-in">
-                            <p class="big"><b>MOBILE USERS</b></p>
-                            <a class="small" href="<?php echo base_url(); ?>admin/mobileusers"><b>VIEW MOBILE USERS ></b></a>
-                        </div>
-                    </div>
-                </div>
+        <div class="row">
+          <div class="contact-info">
+            <div class="col-md-4">
+              <i class="glyphicon glyphicon-envelope"></i><?php echo $metadata['email']; ?>
+            </div>
+            <div class="col-md-4">
+              <i class="glyphicon glyphicon-map-marker"></i><?php echo $metadata['address']; ?>
+            </div>
+            <div class="col-md-4">
+              <i class="glyphicon glyphicon-phone"></i><?php echo $metadata['cnum']; ?>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="divider">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="dash-border">
+              <div class="dash-links">
+                <p class="big"><i class="glyphicon glyphicon-tasks"></i><?php echo $company['num_com']; ?></p>
+                <p class="medium"><b>COMPANIES</b></p>
+                <a class="small" href="<?php echo base_url(); ?>admin/companies"><b>VIEW COMPANIES ></b></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="dash-border">
+              <div class="dash-links">
+                <p class="big"><i class="glyphicon glyphicon-user"></i><?php echo $userinfo['num_user']; ?></p>
+                <p class="medium"><b>MOBILE USERS</b></p>
+                <a class="small" href="<?php echo base_url(); ?>admin/mobileusers"><b>VIEW MOBILE USERS ></b></a>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
-  </div>
-    
+  </main>
+
 </div>

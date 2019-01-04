@@ -13,6 +13,8 @@ class company extends CI_Controller {
 	public function dashboard(){
 		$data['metadata']=$this->session->userdata();
 		$data['title'] = "DASHBOARD";
+		$data['transactions']['num_tran'] = $this->user_model->getTransactions0($data['metadata']['companyid']);
+		$data['userinfo']['num_users'] = $this->user_model->getUsers0($data['metadata']['companyid']);
 
 		$this->load->view("template/dashboard/header",$data);
 		$this->load->view("template/dashboard/dashboard",$data);
@@ -148,6 +150,7 @@ class company extends CI_Controller {
 	public function deletetransaction($transacid){
 		$data['metadata']=$this->session->userdata();
 		$this->user_model->deleteTransactions($transacid);
+		$this->session->set_flashdata('success_msg', 'Deleted Successfully!');
 		redirect('company/transaction','refresh');
 	}
 

@@ -31,6 +31,15 @@ class admin_model extends CI_Model {
     return $company;
   }
 
+  public function getCompany2(){
+    $company = array();
+    $this->db->select('*');
+    $this->db->from('company');
+    //run the query
+    $query = $this->db->get();
+    return $query->num_rows();
+  }
+
   public function getUsers(){
   	$company = array();
     $this->db->select('*');
@@ -51,6 +60,15 @@ class admin_model extends CI_Model {
       $company[] = $info;
     }
     return $company;
+  }
+
+  public function getUsers2(){
+    $company = array();
+    $this->db->select('*');
+    $this->db->from('users');
+    //run the query
+    $query = $this->db->get();
+    return $query->num_rows();
   }
 
   public function getcompanyInfo($companyid){

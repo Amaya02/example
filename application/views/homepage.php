@@ -1,17 +1,17 @@
 <header class="header-home">
-      <nav>
-            <div class="menu-icon">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-                <a href="<?php echo base_url(); ?>"><img class="logo" src="<?php echo base_url('assets/images/LOGO.png'); ?>"></a>
-                              <ul class="menu">
-                                  <li><a href="#home">HOME</a></li>
-                                  <li><a href="#aboutus">ABOUT US</a></li>
-                                  <li><a href="#contactus">CONTACT US</a></li>
-                                  <li class="d-hide">|</li>
-                                  <li><a data-toggle="modal" data-target="#myModal">SIGN IN</a></li>
-                              </ul>
-      </nav>
+  <nav>
+    <div class="menu-icon">
+      <span class="glyphicon glyphicon-align-justify"></span>
+    </div>
+    <a href="<?php echo base_url(); ?>"><img class="logo" src="<?php echo base_url('assets/images/LOGO.png'); ?>"></a>
+    <ul class="menu">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#aboutus">ABOUT US</a></li>
+      <li><a href="#contactus">CONTACT US</a></li>
+      <li class="d-hide">|</li>
+      <li><a data-toggle="modal" data-target="#myModal">SIGN IN</a></li>
+    </ul>
+  </nav>
 </header>
 
 <?php
@@ -24,38 +24,33 @@
   if($error_msg){
     echo "<script type='text/javascript'>alert('$error_msg');</script>";
   }
- ?>
+?>
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
-    <!-- Indicators -->
-    <ul class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ul>
-  <!-- Wrapper for slides --> 
-    <div class="carousel-inner" role="listbox">
-      <div class="item active"> 
-        <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>"> 
-        <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
-        <div class="carousel-caption">
-          <h1>Start with us!</h1>
-          <p>A convenient way to manage <br/> your queuing system.</p>
-          <a id="btn-signup" href="<?php echo base_url(); ?>signup">SIGN UP</a>
-        </div>
+  <ul class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ul>
+  <div class="carousel-inner" role="listbox">
+    <div class="item active"> 
+      <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>"> 
+      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+      <div class="carousel-caption">
+        <h1>Start with us!</h1>
+        <p>A convenient way to manage <br/> your queuing system.</p>
+        <a id="btn-signup" href="<?php echo base_url(); ?>signup">SIGN UP</a>
       </div>
-
-      <div class="item">
-        <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
-        <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
-      </div>
-
-      <div class="item"> 
-        <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
-        <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
-      </div>
-
-    </div>  
+    </div>
+    <div class="item">
+      <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
+      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+    </div>
+    <div class="item"> 
+      <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
+      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+    </div>
+  </div>  
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
@@ -63,7 +58,7 @@
     <div class="border">
       <div class="modal-content">
         <div class="header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
           <div class="modal-body">
