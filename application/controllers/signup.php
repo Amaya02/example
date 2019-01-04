@@ -24,21 +24,28 @@ class signup extends CI_Controller {
 
 		$this->check_isValidated();
 
-		$check=$this->signup_model->user_check($this->input->post('username'));
+		$check=$this->signup_model->user_check1($this->input->post('username'));
 		if($check){
-			$email_check=$this->signup_model->email_check($this->input->post('email'));
-			if($email_check){
-				$email_check1=$this->signup_model->email_check1($this->input->post('email'));
-				if($email_check1){
-					$check=$this->signup_model->checkcompanyname();
-					if($check){
-						$this->signup_model->register_user();
-						$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
-						$base=base_url();
-						redirect($base);
+			$check=$this->signup_model->user_check($this->input->post('username'));
+			if($check){
+				$email_check=$this->signup_model->email_check($this->input->post('email'));
+				if($email_check){
+					$email_check1=$this->signup_model->email_check1($this->input->post('email'));
+					if($email_check1){
+						$check=$this->signup_model->checkcompanyname();
+						if($check){
+							$this->signup_model->register_user();
+							$this->session->set_flashdata('success_msg', 'Registered successfully. Login to your account.');
+							$base=base_url();
+							redirect($base);
+						}
+						else{
+							$this->session->set_flashdata('error_msg', 'Company Name already exist!');
+							redirect('signup');
+						}
 					}
 					else{
-						$this->session->set_flashdata('error_msg', 'Company Name already exist!');
+						$this->session->set_flashdata('error_msg', 'Email Address already exist!');
 						redirect('signup');
 					}
 				}
@@ -48,7 +55,7 @@ class signup extends CI_Controller {
 				}
 			}
 			else{
-				$this->session->set_flashdata('error_msg', 'Email Address already exist!');
+				$this->session->set_flashdata('error_msg', 'Username already exist!');
 				redirect('signup');
 			}
 		}

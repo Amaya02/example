@@ -44,6 +44,10 @@ font-size: 18pt;
     outline: none;
 }
 
+.sign-form select{
+  background: none;
+}
+
 .sign-form input:focus {
    outline:none;
    border-bottom:3px solid #000;
@@ -61,6 +65,7 @@ font-size: 18pt;
     font-family: Copperplate Gothic Bold;
     font-size: 14pt;
     margin-right: 15px;
+    margin-top: 10px; 
 }
 
 .sign-form .btn-submit:hover {
@@ -78,6 +83,7 @@ font-size: 18pt;
     height: 45px;
     font-family: Copperplate Gothic Bold;
     font-size: 11pt;
+    margin-top:4px; 
 }
 
 

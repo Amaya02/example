@@ -66,6 +66,9 @@
                                         <div class="col-sm-6">
                                             <input required type="text" name="cnumber" placeholder="Phone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
                                         </div>
+                                        <div class="col-sm-6">
+                                            <input required type="text" name="tnumber" placeholder="TIN Number" />
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <button type="submit" class="btn-submit" >Register</button>

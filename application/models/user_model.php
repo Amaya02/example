@@ -59,6 +59,7 @@ class user_model extends CI_Model {
             'address' => $row->address,
             'country' => $row->country,
             'cnumber' => $row->cnumber,
+            'tnumber' => $row->tnumber,
             'validatedadmin' => false,
             'validatedtransac' => false,
             'validatedcompany' => true);
@@ -118,6 +119,85 @@ class user_model extends CI_Model {
       $transaction[] = $info;
     }
     return $transaction;
+  }
+
+  public function getTransactions0($companyid){
+    $transaction = array();
+    $this->db->select('*');
+    $this->db->from('transaction');
+    $this->db->where('companyid',$companyid);
+    //run the query
+    $query = $this->db->get();
+    return $query->num_rows();
+  }
+
+  public function getUsers($companyid){
+    $users = array();
+    $this->db->select('*');
+    $this->db->from('user_transac');
+    $this->db->join('users','user_transac.userid = users.id');
+    $this->db->join('transaction','user_transac.transacid = transaction.transacid');
+    $this->db->where('companyid',$companyid);
+    //run the query
+    $query = $this->db->get();
+    $rs=$query->result_array();
+    foreach($rs as $r){
+      $info = array(
+        'fname' => $r['fname'],
+        'lname' => $r['lname'],
+        'num' => $r['num'],
+        'email' => $r['email'],
+        'esti_date' => $r['esti_date'],
+        'date_tran' => $r['date_tran'],
+        'esti_start' => $r['esti_start'],
+        'transacid' => $r['transacid'],
+        'status' => $r['status']
+      );
+      $users[] = $info;
+    }
+    return $users;
+  }
+
+  public function getUsers0($companyid){
+    $users = array();
+    $this->db->select('*');
+    $this->db->from('user_transac');
+    $this->db->join('users','user_transac.userid = users.id');
+    $this->db->join('transaction','user_transac.transacid = transaction.transacid');
+    $this->db->where('companyid',$companyid);
+    //run the query
+    $query = $this->db->get();
+    return $query->num_rows();
+    
+  }
+
+  public function getUsers2($transacid){
+    date_default_timezone_set('Asia/Singapore');
+    $date = date('Y-m-d');
+    $users = array();
+    $this->db->select('*');
+    $this->db->from('user_transac');
+    $this->db->join('users','user_transac.userid = users.id');
+    $this->db->where('transacid',$transacid);
+    $this->db->where('status','Pending');
+    $this->db->where('esti_date',$date);
+    //run the query
+    $query = $this->db->get();
+    $rs=$query->result_array();
+    foreach($rs as $r){
+      $info = array(
+        'fname' => $r['fname'],
+        'lname' => $r['lname'],
+        'num' => $r['num'],
+        'email' => $r['email'],
+        'esti_date' => $r['esti_date'],
+        'date_tran' => $r['date_tran'],
+        'esti_start' => $r['esti_start'],
+        'status' => $r['status']
+      );
+      $users[] = $info;
+    }
+    return $users;
   }
 
   public function tranuser_check($username){
@@ -187,13 +267,13 @@ class user_model extends CI_Model {
     $this->db->delete('transaction');
   }
 
-  public function getTransactionsInfo($tranid){
+  public function getTransactionsInfo($tranid,$transacid){
 
       $this->db->select('*');
       $this->db->from('user_transac');
       $this->db->join('users','user_transac.userid = users.id');
-      $this->db->join('transaction','user_transac.transacid = transaction.transacid');
       $this->db->where('u_tranid',$tranid);
+      $this->db->where('transacid',$transacid);
 
       $query=$this->db->get();
 
@@ -203,13 +283,12 @@ class user_model extends CI_Model {
       }
       else{
         $t['u_tranid']=$r->u_tranid;
-        $t['username']=$r->username;
-        $t['transacname']=$r->transacname;
+        $t['fname']=$r->fname;
+        $t['lname']=$r->lname;
         $t['status']=$r->status;
         $t['date_tran']=$r->date_tran;
         $t['esti_date']=$r->esti_date;
         $t['esti_start']=$r->esti_start;
-        $t['esti_end']=$r->esti_end;
         $t['result']=1;
       }
       
@@ -224,12 +303,36 @@ class user_model extends CI_Model {
     $this->db->update('user_transac', $transac);
   }
 
+  public function closeTransactions($transacid,$date,$status){
+    $transac=array(
+      'status'=>$status
+    );
+    $this->db->where('transacid',$transacid);
+    $this->db->where('status',"Pending");
+    $this->db->where('esti_date',$date);
+    $this->db->update('user_transac', $transac);
+  }
+
   public function user_check($username,$id){
  
       $this->db->select('*');
       $this->db->from('company');
       $this->db->where('username',$username);
       $this->db->where_not_in('companyid',$id);
+      $query=$this->db->get();
+ 
+      if($query->num_rows()>0){
+        return false;
+      }else{
+        return true;
+      }
+  }
+
+  public function user_check1($username){
+ 
+      $this->db->select('*');
+      $this->db->from('admin');
+      $this->db->where('username',$username);
       $query=$this->db->get();
  
       if($query->num_rows()>0){
@@ -292,7 +395,8 @@ class user_model extends CI_Model {
         'companyname'=>$this->input->post('companyname'),
         'address'=>$this->input->post('address'),
         'country'=>$_POST['country'],
-        'cnumber'=>$this->input->post('cnumber')
+        'cnumber'=>$this->input->post('cnumber'),
+        'tnumber'=>$this->input->post('tnumber')
     );
     $this->session->set_userdata($user);
     $this->db->where('companyid',$id);

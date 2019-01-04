@@ -8,38 +8,37 @@
 
     <nav class="sidebar-nav">
        <ul>
-         <li>
-          <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>company/dashboard">
-            <i class="glyphicon glyphicon-home"></i><em>DASHBOARD</em>
+        <li>
+          <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>admin/dashboard">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>DASHBOARD</em>
           </a>
         </li>
         <li>
-          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/transaction">
-            <i class="glyphicon glyphicon-tasks"></i><em>TRANSACTION</em>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/companies">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>COMPANIES</em>
           </a>
         </li>
         <li>
-          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/mobileusers">
-            <i class="glyphicon glyphicon-user"></i><em>MOBILE USERS</em>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/mobileusers">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>MOBILE USERS</em>
           </a>
         </li>
         <li>
-          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/setting">
-            <i class="glyphicon glyphicon-cog"></i><em>SETTING</em>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/setting">
+            <i class="pull-left glyphicon glyphicon-home"></i><em>SETTING</em>
           </a>
         </li>
        </ul>
     </nav>
   </div>
 
-  <!-- Content -->
   <main class="wrapper-content">
     <div class="company-dash">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
             <div class="company-info">
-              <p class="company-name"><?php echo $metadata['companyname']; ?></p>
+              <p class="company-name"><?php echo $metadata['fname']; ?> <?php echo $metadata['lname']; ?></p>
               <p class="company-username"><b>@<?php echo $metadata['username']; ?></b></p>
             </div>
           </div>
@@ -53,7 +52,7 @@
               <i class="glyphicon glyphicon-map-marker"></i><?php echo $metadata['address']; ?>
             </div>
             <div class="col-md-4">
-              <i class="glyphicon glyphicon-phone"></i><?php echo $metadata['cnumber']; ?>
+              <i class="glyphicon glyphicon-phone"></i><?php echo $metadata['cnum']; ?>
             </div>
           </div>
         </div>
@@ -67,18 +66,18 @@
           <div class="col-md-6">
             <div class="dash-border">
               <div class="dash-links">
-                <p class="big"><i class="glyphicon glyphicon-tasks"></i><?php echo $transactions['num_tran']; ?></p>
-                <p class="medium"><b>TRANSACTION</b></p>
-                <a class="small" href="<?php echo base_url(); ?>company/transaction"><b>VIEW TRANSACTION ></b></a>
+                <p class="big"><i class="glyphicon glyphicon-tasks"></i><?php echo $company['num_com']; ?></p>
+                <p class="medium"><b>COMPANIES</b></p>
+                <a class="small" href="<?php echo base_url(); ?>admin/companies"><b>VIEW COMPANIES ></b></a>
               </div>
             </div>
           </div>
           <div class="col-md-6">
             <div class="dash-border">
               <div class="dash-links">
-                <p class="big"><i class="glyphicon glyphicon-user"></i><?php echo $userinfo['num_users']; ?></p>
+                <p class="big"><i class="glyphicon glyphicon-user"></i><?php echo $userinfo['num_user']; ?></p>
                 <p class="medium"><b>MOBILE USERS</b></p>
-                <a class="small" href="<?php echo base_url(); ?>company/mobileusers"><b>VIEW MOBILE USERS ></b></a>
+                <a class="small" href="<?php echo base_url(); ?>admin/mobileusers"><b>VIEW MOBILE USERS ></b></a>
               </div>
             </div>
           </div>
