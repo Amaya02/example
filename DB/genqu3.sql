@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 10, 2018 at 09:55 AM
+-- Generation Time: Jan 04, 2019 at 04:12 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`adminid`, `email`, `password`, `username`, `fname`, `lname`, `address`, `country`, `cnum`) VALUES
-(0, 'admin@yahoo.com', 'f2b14f68eb995facb3a1c35287b778d5bd785511', 'myadmin', 'Admin', 'Account', 'Ermita', 'PHL', '09123456789');
+(0, 'adminamaya@yahoo.com', 'ca771caf60ab211d827f17a043e13668c225f5b6', 'AdminAmaya', 'Amaya', 'Lelis', 'Silang Cavite', 'Philippines', '09771273912');
 
 -- --------------------------------------------------------
 
@@ -65,6 +65,7 @@ CREATE TABLE IF NOT EXISTS `company` (
   `address` varchar(50) NOT NULL,
   `country` varchar(50) NOT NULL,
   `cnumber` varchar(50) NOT NULL,
+  `tnumber` varchar(50) NOT NULL,
   PRIMARY KEY (`companyid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -97,6 +98,9 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(70) NOT NULL,
+  `fname` varchar(70) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `num` varchar(50) NOT NULL,
   `password` varchar(40) NOT NULL,
   `email` varchar(50) NOT NULL,
   `created_at` datetime NOT NULL,
@@ -119,7 +123,6 @@ CREATE TABLE IF NOT EXISTS `user_transac` (
   `date_tran` datetime NOT NULL,
   `esti_date` date NOT NULL,
   `esti_start` time NOT NULL,
-  `esti_end` time NOT NULL,
   PRIMARY KEY (`u_tranid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
