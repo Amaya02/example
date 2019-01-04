@@ -25,8 +25,15 @@
   </nav>
 
    <div class="transac-content">
-    <div class="container">  
-        <table class="table table-borderless">
+    <div class="container"> 
+    <div class="search">
+        <div class="row">
+          <div class="col-lg-12">
+            <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search Name..">
+          </div>
+        </div>
+      </div> 
+        <table class="table table-borderless" id="myTable2">
             <thead>
               <tr>
                   <th>User ID</th>

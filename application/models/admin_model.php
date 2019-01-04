@@ -120,6 +120,7 @@ class admin_model extends CI_Model {
     $this->db->select('*');
     $this->db->from('user_transac');
     $this->db->join('transaction','user_transac.transacid = transaction.transacid');
+    $this->db->join('company','transaction.companyid = company.companyid');
     $this->db->where('userid',$id);
     //run the query
     $query = $this->db->get();
@@ -130,6 +131,9 @@ class admin_model extends CI_Model {
         'esti_start' => $r['esti_start'],
         'date_tran' => $r['date_tran'],
         'transacid' => $r['transacid'],
+        'tranacc' => $r['tranacc'],
+        'transacname' => $r['transacname'],
+        'companyname' => $r['companyname'],
         'u_tranid' => $r['u_tranid'],
         'status' => $r['status']
       );

@@ -29,7 +29,7 @@
  ?>
 
 <div class="container queue-container">
-  <div class="queue-title">NOW SERVING - <?php echo $metadata['transacname']; ?></div>
+  <div class="queue-title"><?php echo $metadata['tranacc']; ?> - <?php echo $metadata['transacname']; ?></div>
   <form name="form" action="<?php echo base_url(); ?>transaction/getTranInfo" method="post">
     <div class="queue-main">
       <input type="text" value="<?php echo $traninfo['u_tranid']; ?>" class="id" name="tranid" onmouseover="focus(this);">
@@ -48,7 +48,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="queue-btn-toolbar">
-            <a href="<?php echo base_url('transaction/TranDone/'.$traninfo['u_tranid']); ?>" class="queue-next">NEXT</a>
+            <a href="<?php echo base_url('transaction/TranDone/'.$traninfo['u_tranid2']); ?>" class="queue-next">DONE</a>
           </div>
         </div>
       </div>

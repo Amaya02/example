@@ -37,7 +37,17 @@
 
    <div class="transac-content">
     <div class="container">  
-        <table class="table table-borderless">
+      <div class="search">
+        <div class="row">
+          <div class="col-lg-6">
+            <input type="text" id="myInput4" onkeyup="myFunction4()" placeholder="Search Account Name..">
+          </div>
+          <div class="col-lg-6">
+            <input type="text" id="myInput5" onkeyup="myFunction5()" placeholder="Search Transaction..">
+          </div>
+        </div>
+      </div>
+        <table class="table table-borderless" id="myTable2">
             <thead>
               <tr>
                   <th>ID</th>

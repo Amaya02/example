@@ -37,14 +37,33 @@
 
    <div class="transac-content">
     <div class="container">  
-        <table class="table table-borderless">
+      <div class="search">
+        <div class="row">
+          <div class="col-lg-6">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Name..">
+          </div>
+          <div class="col-lg-6">
+            <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search Status..">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <input type="text" id="myInput2" onkeyup="myFunction2()" placeholder="Search Date of Transaction..">
+          </div>
+          <div class="col-lg-6">
+            <input type="text" id="myInput3" onkeyup="myFunction3()" placeholder="Search Transaction ID..">
+          </div>
+        </div>
+      </div>
+        <table class="table table-borderless" id="myTable">
             <thead>
               <tr>
                   <th>Name</th>
                   <th>Contact No.</th>
                   <th>Email Address</th>
                   <th>Transaction ID</th>
-                  <th>Date & Time</th>
+                  <th>Date Generated</th>
+                  <th>Date & Time of Transaction</th>
                   <th>Status</th>
               </tr>
               </thead>
@@ -56,6 +75,7 @@
                         <td>'.$post['num'].'</td>
                         <td>'.$post['email'].'</td>
                         <td>'.$post['transacid'].'</td>
+                        <td>'.$post['date_tran'].'</td>
                         <td>'.$post['esti_date'].' - '.$post['esti_start'].'</td>
                         <td>'.$post['status'].'</td>
                       </tr>

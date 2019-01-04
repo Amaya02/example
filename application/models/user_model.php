@@ -138,6 +138,7 @@ class user_model extends CI_Model {
         'num' => $r['num'],
         'email' => $r['email'],
         'esti_date' => $r['esti_date'],
+        'date_tran' => $r['date_tran'],
         'esti_start' => $r['esti_start'],
         'transacid' => $r['transacid'],
         'status' => $r['status']
@@ -148,12 +149,15 @@ class user_model extends CI_Model {
   }
 
   public function getUsers2($transacid){
+    date_default_timezone_set('Asia/Singapore');
+    $date = date('Y-m-d');
     $users = array();
     $this->db->select('*');
     $this->db->from('user_transac');
     $this->db->join('users','user_transac.userid = users.id');
     $this->db->where('transacid',$transacid);
     $this->db->where('status','Pending');
+    $this->db->where('esti_date',$date);
     //run the query
     $query = $this->db->get();
     $rs=$query->result_array();
@@ -164,6 +168,7 @@ class user_model extends CI_Model {
         'num' => $r['num'],
         'email' => $r['email'],
         'esti_date' => $r['esti_date'],
+        'date_tran' => $r['date_tran'],
         'esti_start' => $r['esti_start'],
         'status' => $r['status']
       );
@@ -272,6 +277,16 @@ class user_model extends CI_Model {
       'status'=>$status
     );
     $this->db->where('u_tranid',$tranid);
+    $this->db->update('user_transac', $transac);
+  }
+
+  public function closeTransactions($transacid,$date,$status){
+    $transac=array(
+      'status'=>$status
+    );
+    $this->db->where('transacid',$transacid);
+    $this->db->where('status',"Pending");
+    $this->db->where('esti_date',$date);
     $this->db->update('user_transac', $transac);
   }
 

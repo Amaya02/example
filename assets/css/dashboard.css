@@ -605,8 +605,9 @@ div.queue-title {
     margin-top: 40px;
     text-align: center;
     font-family: "Copperplate Gothic";
-    font-size: 45px;
+    font-size: 40px;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
 
@@ -1006,5 +1007,18 @@ div.wrapper-admin div.content div.container{
     width: auto;
 }
 
+.date-info{
+  font-size: 25px;
+  color: #f8a513;
+  margin-bottom: 20px;
+}
+
+.transac-content .search{
+  margin-bottom: 20px;
+}
+
+.transac-content .search input{
+  margin-bottom: 10px;
+}
 
 

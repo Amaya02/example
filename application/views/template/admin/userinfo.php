@@ -53,6 +53,9 @@
               <tr>
                 <th>USER TRANSACTION ID</th>
                 <th>TRANSACTION ID</th>
+                <th>ACCOUNT NAME</th>
+                <th>TRANSACTION</th>
+                <th>COMPANY NAME</th>
                 <th>DATE & TIME OF TRANSACTION</th>
                 <th>STATUS</th>
                 <th>DATE GENERATED</th>
@@ -64,6 +67,9 @@
                       echo '  <tr>  
                         <td>'.$post['u_tranid'].'</td>
                         <td>'.$post['transacid'].'</td>
+                        <td>'.$post['tranacc'].'</td>
+                        <td>'.$post['transacname'].'</td>
+                        <td>'.$post['companyname'].'</td>
                         <td>'.$post['esti_date'].' - '.$post['esti_start'].'</td>
                         <td>'.$post['status'].'</td>
                         <td>'.$post['date_tran'].'</td>

@@ -27,13 +27,15 @@
 
    <div class="transac-content">
     <div class="container">  
+      <p class="date-info"><b>Pending Transactions ( <?php echo $traninfo['date'] ?> )</b></p>
         <table class="table table-borderless">
             <thead>
               <tr>
                   <th>Name</th>
                   <th>Contact No.</th>
                   <th>Email Address</th>
-                  <th>Date & Time</th>
+                  <th>Date Generated</th>
+                  <th>Date & Time of Transaction</th>
                   <th>Status</th>
               </tr>
               </thead>
@@ -44,6 +46,7 @@
                         <td>'.$post['fname'].' '.$post['lname'].'</td>
                         <td>'.$post['num'].'</td>
                         <td>'.$post['email'].'</td>
+                        <td>'.$post['date_tran'].'</td>
                         <td>'.$post['esti_date'].' - '.$post['esti_start'].'</td>
                         <td>'.$post['status'].'</td>
                       </tr>
@@ -52,6 +55,7 @@
                     ?>
               </tbody>
         </table>
+        <a class="btn-submit" href="<?php echo base_url('transaction/TranClose/'.$traninfo['date']); ?>">Close All Transaction </a>
    </div>
   </div> 
 
