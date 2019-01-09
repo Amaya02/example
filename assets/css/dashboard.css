@@ -1,583 +1,935 @@
+/* Primary Styles */
+*, *::before, *::after {
+   box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  color:#000;
+  font-family: sans-serif;
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 1.4em;
+}
+
+em {
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+} 
+
+table thead tr th{
+  background-color:#f8a513;   
+  border: none;
+}
+
+table tr{
+  border: 3px solid #f8a513;
+}
+
+.search{
+  margin-top: 30px;
+}
+
+.search input{
+  margin-bottom: 10px;
+}
+
+.table-container{
+  margin-top: 20px;
+  overflow-x:auto;
 }
 
 /* HEADER */
 
 .navigation-bar {
-    width: 100%;  
-    height: 105px; 
-    background-color: #000000; 
-    border-bottom: 10px solid #f8a513;
-    overflow: hidden;
+  width: 100%;  
+  height: 105px; 
+  background-color: #000000; 
+  border-bottom: 10px solid #f8a513;
+  overflow: hidden;
+  z-index: 100;
+  position: fixed;
 }
+
 .logo {
-    display: inline-block;
-    width: 300px;
-    height: 70px;
-    margin-right: 20px;
-    margin-top: 25px;    
+  display: inline-block;
+  width: 300px;
+  height: 80px;
+  margin-right: 20px;
+  margin-top: 10px;    
 }
+
 .navigation-bar > a.logout {
-    display: inline-block;
-    margin-top: 50px;
-    margin-right: 20px;
-    float: right; 
-    font-size: 20px;
-    color: #fff;
-    border-left: 2px solid #fff;
-    padding-left: 10px;
+  display: inline-block;
+  margin-top: 50px;
+  margin-right: 20px;
+  float: right; 
+  font-size: 20px;
+  color: #fff;
+  border-left: 2px solid #fff;
+  padding-left: 10px;
 }
 
 .navigation-bar > a:hover {
-    color: #f8a513;
-    text-decoration: none;
+  color: #f8a513;
+  text-decoration: none;
 }
 
 @media (max-width: 450px) {
     .navigation-bar > a.logout {
-        font-size: 15px;
-        margin-top: 0;
-        left: -35%;
-        position: relative;
+      font-size: 15px;
+      margin-top: 0;
+      left: -35%;
+      position: relative;
+      border-left: none;
     }
-
     .logo {
-        display: block;
-        width: 200px;
-        height: 60px;
-        margin-top: 0;
-        margin-right: auto;
-        margin-left: auto;
+      display: block;
+      width: 200px;
+      height: 60px;
+      margin-top: 0;
+      margin-right: auto;
+      margin-left: auto;
     }
+}
+
+/* WRAPPER */
+.wrapper {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.wrapper-content {
+  margin-top: 150px;
+  display: flex;
+  flex: 1;
 }
 
 /* SIDEBAR */
-
-ul.sidenav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    padding-top: 50px;
-    padding-left: 30px;
-    width: 317px;
-    background-color: #000;
-    position: fixed;
-    height: 100%;
-    overflow: auto;
+.sidebar-trigger {
+  z-index: 99;
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  height: 4em;
+  background: #000;
 }
 
-ul.sidenav li {
-    margin-bottom: 20px;
+.sidebar-trigger > i {
+  display: inline-block;
+  margin: 1.5em 0 0 1.5em;
+  color: #f8a513;
 }
 
-ul.sidenav li a {
-    display: block;
-    color: #fff;
-    padding: 15px 16px;
-    text-decoration: none;
-    font-size: 15px;
+.sidebar-nav {
+  position: fixed;
+  top: 100px;
+  left: -20em;
+  overflow: hidden;
+  transition: all .3s ease-in;
+  width: 20em;
+  height: 100%;
+  background: #000000;
+  color: #fff;
+  z-index: 98;
 }
 
-ul.sidenav li a i{
-    padding-right: 20px;
-}
- 
-ul.sidenav li a.active {
-    background-color: #f8a513;
-}
-
-ul.sidenav li a:hover:not(.active) {
-    background-color: #f8a513;
-
+.sidebar-nav:hover,
+.sidebar-nav:focus,
+.sidebar-trigger:focus + .sidebar-nav,
+.sidebar-trigger:hover + .sidebar-nav {
+  left: 0;
 }
 
-div.content {
-    margin-left: 317px;
-    padding: 1px 16px;
+.sidebar-nav ul {
+  position: absolute;
+  top: 4em;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  padding-top: 30px;
+  width: 20em;
 }
 
-@media screen and (max-width: 1024px) {
-    ul.sidenav {
-        width: 250px;
+.sidebar-nav ul li {
+  width: 100%;
+}
+
+.sidebar-nav-link {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 4em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+a.active {
+  background-color: #f8a513;
+  color: #000;
+}
+
+.sidebar-nav-link em {
+  position: absolute;
+  top: 50%;
+  left: 4em;
+  transform: translateY(-50%);
+}
+
+.sidebar-nav-link:hover {
+  background: #f8a513;
+  color: #000;
+}
+
+.sidebar-nav-link > i {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 4em;
+  height: 4em;
+}
+
+.sidebar-nav-link > i::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 768px) {
+    .wrapper-content {
+      margin-top:100px; 
+      margin-left: 4em;
     }
-    div.content {
-        margin-left: 250px;
+    .sidebar-trigger {
+      width: 4em;
+    }
+    .sidebar-nav {
+      top: 100px;
+      width: 4em;
+      left: 0;
+    }
+    .sidebar-nav:hover,
+    .sidebar-nav:focus,
+    .sidebar-trigger:hover + .sidebar-nav,
+    .sidebar-trigger:focus + .sidebar-nav {
+      width: 20em;
     }
 }
 
-@media screen and (max-width: 995px) {
-    ul.sidenav {
-        width: 100%;
-        height: auto;
-        position: relative;
-        padding: 0;
+@media (min-width: 1024px) {
+    .wrapper-content {
+      margin-top:100px;
+      margin-left: 20em;
     }
-    ul.sidenav li a {
-        float: left;
-        padding: 15px;
+    .closebtn{
+      display: none
     }
-    ul.sidenav li {
-        margin-bottom: 0px;
+    .sidebar-trigger {
+      display: none
     }
-    div.content {
-        margin-left: 0;
+    .sidebar-nav {
+      width: 20em;
     }
-}
-
-@media screen and (max-width: 400px) {
-    ul.sidenav li a{
-        float: none;
+    .sidebar-nav ul {
+      top: 1.3em;
     }
 }
 
 /* DASHBOARD */
-div.wrapper-dash div.content div.container{
-    margin:0;
-    width: auto;
-}
-div.main-wrap{
-    text-align: center;
-}
-div.main {
-    height: 500px;
-    width: 80%;
-    border: 5px solid #f8a513;
-    margin-top: 50px;
-    border-radius: 10px;
-    text-align: center;
-    display: inline-block;
-    padding-top: 180px;
-    font-size: 20px;
-    text-transform: uppercase;
+.company-dash{
+  width: 100%;
 }
 
-div.main p{
-    padding-top: 20px;
+.company-dash .container{
+  margin: 0;
+  width: 100%;
 }
 
-div.com-name{
-    width: 90%;
-    position: relative;
-    background-color: #f8a513;
-    top: 0;
-    left: 0;
-    top: -460px;
-    display: inline-block;
+.company-dash .company-info{
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
-div.com-name p.company{
-    font-size: 50px;
-    text-transform: uppercase;
-    text-align: center;
+.company-dash .company-info p,
+.company-dash .dash-links p{
+  margin: 0;
+  line-height: 1.2;
 }
 
-div.but-wrap{
-    text-align: left;
+.company-dash .company-name{
+  font-size: 40px;
 }
 
-div.main-trans {
-    height: 200px;
-    width: 100%;
-    border: 5px solid #f8a513;
-    margin-top: 90px;
-    border-radius: 10px;
-    padding: 5px;
-    display: inline-block;
+.company-dash .company-username{
+  font-size: 18px;
+  color: gray;
 }
 
-div.trans-in {
-    background-color: #f8a513;
-    height: 100%;
-    border-radius: 5px;
+.company-dash .divider{
+  background: #f8a513;
+  height: 5px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
-div.main-queue {
-    height: 200px;
-    width: 100%;
-    border: 5px solid #f8a513;
-    padding: 5px;
-    border-radius: 10px;
-    margin-top: 20px;
-    display: inline-block;
-
+.company-dash .contact-info i,
+.company-dash .dash-links i{
+  margin-right: 10px;
 }
 
-div.queue-in {
-    background-color: #f8a513;
-    height: 100%;
-    border-radius: 5px;
+.company-dash .contact-info{
+  font-size: 15px;
+  margin-top: 10px;
 }
 
-p.big {
-    font-size: 40px;
-    text-align: left;
-    padding-top: 45px;
-    padding-left: 15px;
-    margin: 0;
+.company-dash .dash-border{
+  width: 100%;
+  height: 200px;
+  border: 5px solid #f8a513;
+  border-radius: 10px;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
-a.small{
-    font-size: 15px;
-    text-align: left;
-    padding-left: 15px;
-    color: #000;
+.company-dash .dash-links{
+  background-color: #f8a513;
+  height: 100%;
+  border-radius: 5px;
+  padding: 20px;
 }
 
-@media screen and (max-width: 1441px) {
-    p.big {
-        font-size: 30px;
-        text-align: left;
-        padding-top: 45px;
-        padding-left: 15px;
-        margin: 0;
+.company-dash .dash-links .big{
+  font-size: 45px;
+}
+
+.company-dash .dash-links .medium{
+  font-size: 30px;
+}
+
+.company-dash .dash-links .small{
+  color: gray;
+  font-size: 15px;
+}
+
+.company-dash .dash-links .big i{
+  font-size: 30px;
+}
+
+@media (min-width: 425px) {
+    .company-dash .company-name{
+        font-size: 40px;
     }
-    div.com-name p.company{
-        font-size: 5vw;
+    .company-dash .dash-links .big{
+      font-size: 45px;
+    }
+    .company-dash .dash-links .medium{
+      font-size: 30px;
+    }
+    .company-dash .dash-links .big i{
+      font-size: 30px;
+    }
+    .company-dash .dash-border{
+      height: 200px;
+    }
+    .company-dash .contact-info{
+      font-size: 15px;
     }
 }
 
-@media screen and (max-width: 1240px) {
-    p.big {
-        font-size: 25px;
-        text-align: left;
-        padding-top: 45px;
-        padding-left: 15px;
-        margin: 0;
+@media (min-width: 1024px) {
+    .company-dash .dash-links .big{
+      font-size: 55px;
     }
-    a.small{
-        font-size: 10px;
-        text-align: left;
-        padding-left: 15px;
-        color: #000;
+    .company-dash .dash-links .medium{
+      font-size: 35px;
     }
-    div.main-trans {
-        height: 150px;
-        margin-top: 130px;
+    .company-dash .dash-links .big i{
+      font-size: 35px;
     }
-    div.main-queue {
-        height: 150px;
-        margin-top: 20px;
-
+    .company-dash .dash-border{
+      height: 250px;
     }
-
 }
 
-@media screen and (max-width: 1120px) {
-    p.big {
-        font-size: 20px;
-        text-align: left;
-        padding-top: 45px;
-        padding-left: 15px;
-        margin: 0;
-    }
-    a.small{
-        font-size: 10px;
-        text-align: left;
-        padding-left: 15px;
-        color: #000;
-    }
-    div.main-trans {
-        height: 150px;
-        margin-top: 130px;
-    }
-    div.main-queue {
-        height: 150px;
-        margin-top: 20px;
-
-    }
-
+/* TRANSACTION */
+.company-tran{
+  width: 100%;
 }
 
-@media screen and (max-width: 991px) {
-    p.big {
-        font-size: 25px;
-        text-align: left;
-        padding-top: 45px;
-        padding-left: 15px;
-        margin: 0;
-    }
-    a.small{
-        font-size: 10px;
-        text-align: left;
-        padding-left: 15px;
-        color: #000;
-    }
-    div.main-trans {
-        height: 150px;
-        margin-top: 0;
-    }
-    div.main-queue {
-        height: 150px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-    }
-
+.company-tran a{
+  color: #000;
 }
 
-@media screen and (max-width:520px) {
-    div.main {
-        font-size: 15px;
-        height: 400px;
-        padding-top: 120px;
-    }
-    div.com-name{
-        top: -360px;   
-    }
-
-/*TRANSACTION*/
-
-div.transac-content {
-    margin-left: 317px;
-    padding: 30px 16px;
+.company-tran a:hover{
+  color: #f8a513;
+  text-decoration: none;
 }
 
-div.transac-content div.container {
-   width:100%;
-}
-
-table thead tr th{
-    background-color:#f8a513;   
-    border: none;
-}
-
-table tr{
-    border: 3px solid #f8a513;
+.company-tran .container{
+  margin: 0;
+  width: 100%;
 }
 
 a.btn-transact{
-    text-decoration: none;
-    font-family: Copperplate Gothic;
-    color:black;
-    font-weight: bold;
-    padding-left: 10px;
+  text-decoration: none !important;
+  font-family: Copperplate Gothic;
+  color:black;
+  font-weight: bold;
+  padding-left: 10px;
 }
 
 a.btn-transact:hover{
-    color:#f8a513;  
+  color:#f8a513;  
+}
+
+a.btn-transact:focus{
+  color:#f8a513;  
+}
+
+#modalAdd, #modalUpdate{
+  overflow: hidden;
 }
 
 div.border{
-   border: 3px solid #f8a513;
-   padding: 8px;
-   width: 70%;
-   height: 100%;
+  border: 3px solid #f8a513;
+  padding: 8px;
+  width:75%;
+  margin: auto;
+  margin-top: 18%;  
 }
 
-div.modal{
-   text-align: center;
-   position: absolute;
-   transform: translateX(6%);
-   top:100px;
+div.modal-dialog {
+  height: 100%;
 }
 
-.modal{
-   text-align: center;
-   position: absolute;
-   transform: translateX(6%);
+div.header, div.footer, div.body{
+  padding: 15px;
 }
 
-.modal-body i{
-   color:black;
-   font-size: 1.8em;
- }
-
-.modal-body{
-   margin-top:78px;
+div.footer{
+  text-align: right;
 }
 
-.modal-dialog {
-   top:0px;
-   margin: 6vh auto 0px auto;
-   display:inline-block;
+div.header button.title{
+  border-style: none;
+  transform: translateY(-75%);
+  color: black;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+  font-family: "Copperplate Gothic";
+  font-weight: bold;
+  font-size: 25px;
+  font-color: black;
+  background-color: #f8a513;
+  border-radius: none;
+  border: none;
+  margin: auto;
+  display: block;
 }
 
-.modal-content {
-   width:100%;
-   height: 100%;
-}
-
-.header{
-   padding: 3px;
-   margin-right: 5px;
+div.header button.title2{
+  border-style: none;
+  transform: translateY(-75%);
+  color: black;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+  font-family: "Copperplate Gothic";
+  font-weight: bold;
+  font-size: 25px;
+  font-color: black;
+  background-color: #f8a513;
+  border-radius: none;
+  border: none;
+  margin: auto;
+  display: block;
 }
 
 input:focus {
-   outline:none;
-   border-bottom:3px solid #000;
+  outline:none;
+  border-bottom:3px solid #000;
 }
 
 input{
-   border: none;
-   border-bottom:3px solid #f8a513;
-   width: 80%;
+  border: none;
+  border-bottom:3px solid #f8a513;
+  width: 80%;
 }
 
-input.time{
-    width: 37%;
+div.form-group{
+  text-align: center;
 }
 
-.footer #btn-title{
-   color: black;
-   text-align: center;
-   position: relative;     
-   top: -340px;
-   padding:10px;
-   font-family:"Copperplate Gothic";
-   font-weight: bold;  
-   font-size: 30px;
-   font-color:black;
-   background-color: #f8a513;
-   border-radius: none;
-   border: none;
+.body .form-group input{
+  padding-top: 10px; 
+  width: 80%;
 }
 
-.footer #btn-transac{
-   color: black;
-   border: none;
-   border-radius:7px;
-   background-color: #f8a513;
-   font-family:"Copperplate Gothic";
-   font-weight: bold;      
-   font-size: 1.1em !important;
-   text-align: center;
-   position: relative;     
-   left: 156px !important;
-   bottom: 10px;
+.body .form-group input.time{
+  width: 37%;
 }
 
-.footer #btn-title-up{
-   color: black;
-   text-align: center;
-   position: relative;     
-   top: -290px;
-   padding:10px;
-   font-family:"Copperplate Gothic";
-   font-weight: bold;  
-   font-size: 25px;
-   font-color:black;
-   background-color: #f8a513;
-   border-radius: none;
-   border: none;
+.body .form-group input.TranA{
+  width: 40%;
 }
 
-.footer #btn-transac-up{
-   color: black;
-   border: none;
-   border-radius:7px;
-   background-color: #f8a513;
-   font-family:"Copperplate Gothic";
-   font-weight: bold;      
-   font-size: 1.1em !important;
-   text-align: center;
-   position: relative;     
-   left: 145px !important;
-   bottom: 10px;
+.body .form-group i{
+  color:#000; 
+}
+
+.footer button{
+  border-style: none;
+  background-color:#f8a513;
+  border-radius: 5px;
+  font-size: 2vh;
+  color:#000;
+  text-align: center;
+  font-family: Copperplate Gothic;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 1024px) {
     div.transac-content {
-        margin-left: 250px;
-    }
-
-    .modal-dialog{
-        left: 35px;
+      margin-left: 250px;
     }
 }
 
 @media screen and (max-width: 995px) {
     div.transac-content {
-        margin-left: 0px;
-    }
-}
-
-@media screen and (max-width:768px){
-    .modal-dialog{
-        left: 35px;
-    }
-}
-
-@media screen and (max-width: 767px){
-    .modal-dialog{
-        width:79%;
-        left:40px;
+      margin-left: 0px;
     }
 }
 
 @media screen and (max-width: 425px){
     div.transac-content{
-        padding:30px 0px!important;
-    }
-
-    .modal-dialog{
-        left:0px;
+      padding:30px 0px!important;
     }
 }
 
 @media screen and (max-width: 425px){
-    .modal-dialog{
-        width:126%;
-    }
-
-    .footer #btn-title {
-        top: -333px;
-        padding: 3px;
-        font-size: 27px;
-    }
-    
-    .footer #btn-transac{
-        left: 140px!important;
-    }
-    
-    table{
-        margin-top:10px;
-    }
-
-    table th, td{
-        display: inline-block;
-    }
-
     div.transac-content{
-        padding:0px 0px!important;
+      padding:0px 0px!important;
+    }
+}
+
+/* MOBILE */
+.company-user{
+  width: 100%;
+}
+
+.company-user .container{
+  margin: 0;
+  width: 100%;
+}
+
+/* SETTING */
+.company-setting{
+  width: 100%;
+}
+
+.company-setting .container{
+  margin: 0;
+  width: 100%;
+}
+
+div.wrapper-dash div.content div.container{
+  margin:0;
+  width: auto;
+}
+
+div.main-wrap{
+  text-align: center;
+}
+
+div.setting-main {
+  height: 100%;
+  width: 80%;
+  padding-top: 35px;
+  background-color: #f8a513;
+  border: 5px solid #f8a513;
+  margin-top: 35px;
+  border-radius: 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.setting-form {
+  margin: 10px 0px;
+}
+
+.setting-form2 {
+  margin: 10px 0px;
+}
+
+.setting-main input[type=text], select#country, textarea,
+input[type=email] {
+  width: 100%;
+  padding: 10px;
+  background-color: #f8a513;
+  border: none;
+  border-bottom: 5px solid #000;
+  font-family: Constantia;
+  font-size: 18px;
+}
+
+div.setting-btn-toolbar {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 5px;
+}
+
+.setting-pass {
+  height:40px;
+  background-color: white;
+  border: 3px black solid;
+  border-radius: 9px;
+  font-size: 16px;
+  font-family: Copperplate Gothic;
+}
+
+a.setting-pass{
+  padding: 8px;
+  color: #000000;
+}
+
+a.setting-pass:hover{
+  text-decoration: none;
+}
+
+button.setting-acc {
+  height:40px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  font-size: 16px;
+  font-family: Copperplate Gothic;   
+}
+
+#modalCPass{
+  overflow: hidden;
+}
+
+div.border-pass{
+  border: 3px solid #f8a513;
+  padding: 8px;
+  width:75%;
+  margin: auto;
+  margin-top: 18%;  
+}
+
+div.form-group .form-check-input{
+  margin: 10px auto;
+  width: 3%;
+  margin-left:-50%;
+}
+
+div.header button.title3{
+  border-style: none;
+  transform: translateY(-75%);
+  color:black;
+  text-align: center;
+  position: relative;
+  padding: 10px;
+  font-family: "Copperplate Gothic";
+  font-weight: bold;
+  font-size: 25px;
+  font-color: black; 
+  background-color: #f8a513;
+  border-radius: none;
+  border: none;
+  margin: auto;
+  display: block;
+}
+
+@media screen and (max-width: 1024px) {
+    div.setting-btn-toolbar {
+      width: 100%;
+      transform: translateX(-10%);
+    }
+    button.setting-pass {
+      width: 40%;
+      margin: 0px;
+    }
+    button.setting-acc {
+      width: 40%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.setting-main {
+      width: 100%;
+      margin-top: 15px;
+    }
+    div.setting-btn-toolbar {
+      width: 100%;
+    }
+    button.setting-pass {
+      width: 50%;
+    }
+    button.setting-acc {
+      width: 49%;
+    }
+}
+
+@media screen and (max-width: 550px){
+    div.border-pass{
+      width:80%;  
+      margin-top: 22%;
+    }
+    div.form-group .form-check-input{
+      margin-left:-48%;
+    }
+}
+
+@media screen and (max-width: 499px){
+    div.header button.title3{
+      font-size: 21px;
+    }
+    div.form-group .form-check-input{
+      margin-left:-45%;
+    }
+}
+
+@media screen and (max-width: 475px){
+    div.border-pass{
+      width:85%;  
+    }
+    div.header button.title3{
+      font-size: 23px;
+    }
+}
+
+@media screen and (max-width: 445px){
+    div.border-pass{
+      width:85%;  
+    }
+    div.header button.title3{
+      font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    div.setting-main {
+      width: 100%;
+      margin-top: 15px;
+    }
+    button.setting-pass {
+      width: 100%;
+      margin-top: 5px;
+    }
+    button.setting-acc {
+      width: 100%;
+      margin-top: 5px;
     }
 
-    .modal-dialog{
-        left: 0px;
+    div.form-group .form-check-input{
+      margin-left:-40%;
+    }
+}
+
+@media screen and (max-width: 445px){
+    div.border-pass{
+      width:85%;  
+    }  
+    div.header button.title3{
+      font-size: 16px;
     }
 }
 
 @media screen and (max-width: 375px){
-    .footer #btn-title {
-        top: -325px;
-        padding: 1px;
-        font-size:23px;
+    div.form-group .form-check-input{
+      width: 5%;
+      margin-left: -33%;
     }
+}
 
-    .footer #btn-transac{
-        left: 118px!important;
-    }
-
-    .modal-dialog{
-        left: 0px;
+@media screen and (max-width: 345px){
+    div.header button.title3{
+      font-size: 15px;
     }
 }
 
 @media screen and (max-width: 320px){
-    .footer #btn-title {
-        top: -323px;
-        padding: 2px;
-        font-size: 19px
+    div.header button.title3{
+      font-size: 14px;
     }
-
-    .footer #btn-transac{
-        left: 93px!important;
-    }
-
-    .modal-dialog{
-        left: 0px;
+    div.form-group .form-check-input{
+      width: 6%;
+      margin-left:-20%;
     }
 }
 
+/* QUEUE */
+.transac-queue{
+  width: 100%;
 }
+
+.transac-queue .container{
+  margin: 0;
+  width: 100%;
+}
+
+div.queue-title {
+  width: 100%;
+  margin-top: 40px;
+  text-align: center;
+  font-family: "Copperplate Gothic";
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+div.queue-main {
+  width: 50%;
+  height: 300px;
+  margin: auto;
+  background-color: #f8a513;
+  text-align: center;
+  font-family: "Copperplate Gothic";
+  font-size: 200px;
+}
+
+div.queue-main .id{
+  background: none;
+}
+
+div .info{
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+div .info p{
+  margin-left: 15%;
+  margin-right: 15%;
+  text-align: left;
+}
+
+.queue-btn-toolbar{
+  margin-top: 30px;
+}
+
+a.queue-next {
+  margin-top: 20px;
+  width: 15%;
+  height:50px;
+  background-color: white;
+  border: 5px #f8a513 solid;
+  border-radius: 9px;
+  font-size: 24px;
+  font-family: Copperplate Gothic;
+  font-weight: bold;
+  padding: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    div.queue-container {
+      width: 80%;
+      transform: translateX(16%);
+    }
+    div.queue-main {
+      width: 60%;
+    }
+    button.queue-next {
+      margin-left: 340px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    div.queue-container {
+      width: 100%;
+      transform: translateX(0%);
+    }
+    div.queue-main {
+      width: 60%;
+    }
+    button.queue-next {
+      margin-left: 320px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    div.queue-title {
+      font-size: 48px;
+    }
+    div.queue-main {
+      width: 100%;
+      height: 230px;
+      font-size: 150px;
+    }
+    button.queue-next {
+      margin: 5px 0px;
+      width: 100%;
+      font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    div.queue-title {
+      font-size: 40px;
+    }
+    div.queue-main {
+      width: 100%;
+      height: 150px;
+      font-size: 100px;
+    }
+    }
+    @media screen and (max-width: 320px) {
+    div.queue-main {
+      width: 100%;
+      height: 150px;
+      font-size: 100px;
+    }
+}
+
+/* TRANSAC USER */
+.transac-user{
+  width: 100%;
+}
+
+.transac-user .container{
+  margin: 0;
+  width: 100%;
+}
+
+.transac-user .date-info{
+  font-size: 25px;
+  color: #f8a513;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+/* ADMIN */
+.admin{
+  width: 100%;
+}
+
+.admin{
+  margin: 0;
+  width: 100%;
+}
+
+.admin .container{
+  margin:0;
+  width: 100%;
+}
+.company-dash .tran-name{
+  font-size: 25px;
+}
+
+
+
+

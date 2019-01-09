@@ -6,14 +6,14 @@
     <meta name="description" content="" />
     <meta name="author" content="">
 
-    <title>Genque3</title>
+    <title>GENQU3 | <?php echo $title; ?></title>
+
+    <link rel="icon" type="image/png" href="<?php echo base_url(); ?>ICON.png" />
     
     <link  rel="stylesheet" href="<?php echo base_url('assets/css/homepage.css'); ?>" />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css//bootstrap.css'); ?>"/>
-    <link rel="stylesheet" href="<?php echo base_url('assets/css//bootstrap.min.css'); ?>"/>
-<!--      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" /> -->
-	 <script src="<?php echo base_url('assets/js/jquery.min.js'); ?>"></script>
-     <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>" />
+    <link  rel="stylesheet" href="<?php echo base_url('assets/css/header.css'); ?>" />
+    <link  rel="stylesheet" href="<?php echo base_url('assets/css/signup.css'); ?>" />
+
 </head>
 <body>
