@@ -83,6 +83,7 @@ class user_model extends CI_Model {
       $row = $query->row();
       $data = array(
             'transacid' => $row->transacid,
+            'companyid' => $row->companyid,
             'tranacc' => $row->tranacc,
             'tranpass' => $row->tranpass,
             'transacname' => $row->transacname,
@@ -119,6 +120,34 @@ class user_model extends CI_Model {
       $transaction[] = $info;
     }
     return $transaction;
+  }
+
+  public function getUserToken($userid){
+    $transaction = array();
+    $this->db->select('*');
+    $this->db->from('users');
+    $this->db->where('id',$userid);
+    //run the query
+    $query=$this->db->get();
+    $r= $query->row();
+    
+    $t['fcm_regid']=$r->fcm_regid;
+      
+    return $t;
+  }
+
+  public function getCompany($id){
+    $transaction = array();
+    $this->db->select('*');
+    $this->db->from('company');
+    $this->db->where('companyid',$id);
+    //run the query
+    $query=$this->db->get();
+    $r= $query->row();
+    
+    $t['companyname']=$r->companyname;
+      
+    return $t;
   }
 
   public function getTransactions0($companyid){
@@ -186,6 +215,7 @@ class user_model extends CI_Model {
     $rs=$query->result_array();
     foreach($rs as $r){
       $info = array(
+        'id' => $r['id'],
         'fname' => $r['fname'],
         'lname' => $r['lname'],
         'num' => $r['num'],
