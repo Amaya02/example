@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <header class="header-home">
       <nav>
             <div class="menu-icon">
@@ -28,7 +34,10 @@
                     <div class="bgwhite">
                         <div class="row">
                             <div class="col-sm-4 add-side">
-                                W E L C O M E ! ! !
+                                <h2>Less time in queue? Register your company now!</h2>
+                                <p><span class="glyphicon glyphicon-ok"></span> Reduce your queue times</p>
+                                <p><span class="glyphicon glyphicon-ok"></span> Serve more customers everyday</p>
+                                <p><span class="glyphicon glyphicon-ok"></span> Improve staff efficiencies</p>
                             </div>
                             <div class="col-sm-8 sign-form">
                                 <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process'>
@@ -85,25 +94,25 @@
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-s">
-    <div class="border">
+  <div class="modal-dialog">
+    <div class="border1">
       <div class="modal-content">
         <div class="header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
-          <div class="modal-body">
+          <div class="body">
             <div class="form-group">
               <span class="glyphicon glyphicon-user"></span>
               <input type="text" name="username" id="username" placeholder="Enter Username" required />
               <br><span class="glyphicon glyphicon-lock"></span>
               <input type="password" id="password" name="password" placeholder="Enter password" required />
-              <br><input class="form-check-input" type="checkbox" onclick="myFunction()" />Show Password
+              <br><input class="form-check-input" type="checkbox" onclick="myFunction()" /><b>Show Password</b>
             </div>      
           </div>
           <div class="footer">
-            <button  id="btn-title"  data-dismiss="modal">SIGN IN</button> 
-            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Signin</button>
+            <button id="btn-title" class="title">SIGN IN</button>
+            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Sign in</button>
           </div>
         </form>
       </div>
@@ -122,5 +131,14 @@
           <div class="col-md-4">
           </div>
         </div>
-      </div>
-    </footer>
+    </div>
+</footer>
+
+
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>

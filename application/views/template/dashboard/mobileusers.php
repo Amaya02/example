@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <?php
   $success_msg= $this->session->flashdata('success_msg');
   $error_msg= $this->session->flashdata('error_msg');
@@ -102,3 +108,12 @@
   </main>
 
 </div>
+
+
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>

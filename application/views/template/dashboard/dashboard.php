@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <div class="wrapper">
 
 <!-- Sidebar -->
@@ -89,3 +95,12 @@
   </main>
 
 </div>
+
+
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>

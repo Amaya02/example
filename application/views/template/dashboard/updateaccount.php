@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <div class="wrapper">
 
   <!-- Sidebar -->
@@ -75,7 +81,7 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-sm-12 setting-form">
+                <div class="col-sm-12 setting-buttons">
                   <a href="<?php echo base_url(); ?>company/setting" class="setting-pass"><b>Back</b></a>
                   <button type="submit" class="setting-acc">Save</button>
                 </div>
@@ -88,3 +94,12 @@
   </main>
 
 </div>
+
+
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>

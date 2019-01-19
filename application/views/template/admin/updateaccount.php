@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <?php
   $success_msg= $this->session->flashdata('success_msg');
   $error_msg= $this->session->flashdata('error_msg');
@@ -27,17 +33,17 @@
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/companies">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>COMPANIES</em>
+            <i class="pull-left glyphicon glyphicon-briefcase"></i><em>COMPANIES</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/mobileusers">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>MOBILE USERS</em>
+            <i class="pull-left glyphicon glyphicon-user"></i><em>MOBILE USERS</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>admin/setting">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>SETTING</em>
+            <i class="pull-left glyphicon glyphicon-cog"></i><em>SETTING</em>
           </a>
         </li>
        </ul>
@@ -85,9 +91,9 @@
                 <div class="col-sm-6 setting-form">
                   <input required type="text" name="cnum" placeholder="Phone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' value="<?php echo $metadata['cnum'];?>" />
                 </div>
-                <div class="col-sm-6 setting-form">
-                    <a href="<?php echo base_url(); ?>admin/setting" class="setting-pass"><b>Back</b></a>
-                    <button type="submit" class="setting-acc">Save</button>
+                <div class="col-sm-12 setting-buttons">
+                    <a href="<?php echo base_url(); ?>admin/setting" class="setting-pass"><b>back</b></a>
+                    <button type="submit" class="setting-acc">save</button>
                 </div>
               </div>
             </form>
@@ -98,3 +104,12 @@
   </main>
 
 </div>
+
+
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>

@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <?php
   $success_msg= $this->session->flashdata('success_msg');
   $error_msg= $this->session->flashdata('error_msg');
@@ -112,88 +118,97 @@
       <div class="border">
         <div class="modal-content">
           <div class="header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
           <form action="<?php echo base_url(); ?>company/addtransaction" autocomplete="off" enctype="multipart/form-data" role="form" method="post">
-            <div class="modal-body">
-              <div class="form-group">
-                <i class="glyphicon glyphicon-user"></i>
-                <input class="TranA" type="text" value="<?php echo $metadata['username']; ?>@"" name="tranacc1" readonly>
-                <input class="TranA" type="text" placeholder="Account name" name="tranacc" required>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" placeholder="Password" name="tranpass" required>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-tasks"></i>
-                <input type="text" placeholder="Transaction Name" name="tranname" required>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-time"></i>
-                <input type="text" placeholder="Estimated Time (minutes)" name="estitime" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-time"></i>
-                <input class="time" type="time" name="trantime1" required="" />
-                <label>TO</label> 
-                <input class="time" type="time" name="trantime2" required="" />
-              </div>
+          <div class="body">
+            <div class="form-group">
+              <i class="glyphicon glyphicon-user"></i>
+              <input class="TranA" type="text" value="<?php echo $metadata['username']; ?>@"" name="tranacc1" readonly>
+              <input class="TranA" type="text" placeholder="Account name" name="tranacc" required>
             </div>
-            <div class="footer">
-                <button  id="btn-title"  data-dismiss="modal">ADD TRANSACTION</button> 
-                <button type="Submit" value="submit" id="btn-transac" data-toggle="modal" >Add</button>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-lock"></i>
+              <input type="password" placeholder="Password" name="tranpass" required>
             </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-tasks"></i>
+              <input type="text" placeholder="Transaction Name" name="tranname" required>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-time"></i>
+              <input type="text" placeholder="Estimated Time (minutes)" name="estitime" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-time"></i>
+              <input class="time" type="time" name="trantime1" required="" />
+              <label>TO</label> 
+              <input class="time" type="time" name="trantime2" required="" />
+            </div>
+          </div>
+          <div class="footer">
+              <button  id="btn-title" class="title"  data-dismiss="modal">ADD TRANSACTION</button> 
+              <button type="Submit" value="submit" id="btn-transac" data-toggle="modal" >Add</button>
+          </div>
           </form>
-        </div>
       </div>
     </div>
   </div>
+</div>
 
   <div class="modal fade" id="modalUpdate" role="dialog">
     <div class="modal-dialog modal-s">
       <div class="border">
         <div class="modal-content">
-          <div class="header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-          </div>
-          <form action="<?php echo base_url(); ?>company/updatetransaction" autocomplete="off" enctype="multipart/form-data" role="form" method="post">
-            <div class="modal-body">
-              <div class="form-group">
-                  <input type="hidden" name="user_id" id="user_id" value="" />
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-user"></i>
-                <input class="TranA" type="text" value="<?php echo $metadata['username']; ?>@"" name="tranacc1" readonly>
-                <input class="TranA" type="text" placeholder="Account name" name="tranacc" required>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" placeholder="Password" name="tranpass" required>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-tasks"></i>
-                <input type="text" placeholder="Transaction Name" name="tranname" id="tranname" required>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-time"></i>
-                <input type="text" placeholder="Estimated Time (minutes)" id="estitime" name="estitime" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-              </div>
-              <div class="form-group">
-                <i class="glyphicon glyphicon-time"></i>
-                <input class="time" type="time" name="trantime1" id="trantime1" required="" />
-                <label>TO</label> 
-                <input class="time" type="time" name="trantime2" id="trantime2" required="" />
-              </div>
-            </div>
-            <div class="footer">
-              <button  id="btn-title-up"  data-dismiss="modal">UPDATE TRANSACTION</button> 
-              <button type="Submit" value="submit" id="btn-transac-up" data-toogle="modal">UPDATE</button>
-            </div>
-          </form>       
+        <div class="header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
+        <form action="<?php echo base_url(); ?>company/updatetransaction" autocomplete="off" enctype="multipart/form-data" role="form" method="post">
+          <div class="body">
+            <div class="form-group">
+                <input type="hidden" name="user_id" id="user_id" value="" />
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-user"></i>
+              <input class="TranA" type="text" value="<?php echo $metadata['username']; ?>@"" name="tranacc1" readonly>
+              <input class="TranA" type="text" placeholder="Account name" name="tranacc" required>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-lock"></i>
+              <input type="password" placeholder="Password" name="tranpass" required>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-tasks"></i>
+              <input type="text" placeholder="Transaction Name" name="tranname" id="tranname" required>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-time"></i>
+              <input type="text" placeholder="Estimated Time (minutes)" id="estitime" name="estitime" required onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+            </div>
+            <div class="form-group">
+              <i class="glyphicon glyphicon-time"></i>
+              <input class="time" type="time" name="trantime1" id="trantime1" required="" />
+              <label>TO</label> 
+              <input class="time" type="time" name="trantime2" id="trantime2" required="" />
+            </div>
+          </div>
+          <div class="footer">
+            <button  id="btn-title-up" class="title2">UPDATE TRANSACTION</button> 
+            <button type="Submit" value="submit" id="btn-transac-up" data-toogle="modal">UPDATE</button>
+          </div>
+        </form>       
       </div>
     </div>
   </div>
+</div>
 
 </div>
+
+
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>

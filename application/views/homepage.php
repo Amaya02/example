@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <header class="header-home">
   <nav>
     <div class="menu-icon">
@@ -35,7 +41,7 @@
   <div class="carousel-inner" role="listbox">
     <div class="item active"> 
       <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>"> 
-      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+      <img id="img2" src="<?php echo base_url('assets/images/BG480.jpg'); ?>"> 
       <div class="carousel-caption">
         <h1>Start with us!</h1>
         <p>A convenient way to manage <br/> your queuing system.</p>
@@ -43,25 +49,27 @@
       </div>
     </div>
     <div class="item">
-      <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
-      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+      <img class="img1" src="<?php echo base_url('assets/images/ABOUT.jpg'); ?>">
+      <img id="img2" src="<?php echo base_url('assets/images/ABOUT480.jpg'); ?>"> 
     </div>
     <div class="item"> 
-      <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
-      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+      <img class="img1" src="<?php echo base_url('assets/images/CONTACT.jpg'); ?>">
+      <img id="img2" src="<?php echo base_url('assets/images/CONTACT480.jpg'); ?>"> 
     </div>
   </div>  
+<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-s">
-    <div class="border">
+  <div class="modal-dialog">
+    <div class="border1">
       <div class="modal-content">
         <div class="header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
-          <div class="modal-body">
+          <div class="body">
             <div class="form-group">
               <span class="glyphicon glyphicon-user"></span>
               <input type="text" name="username" id="username" placeholder="Enter Username" required />
@@ -71,14 +79,20 @@
             </div>      
           </div>
           <div class="footer">
-            <button  id="btn-title"  data-dismiss="modal">SIGN IN</button> 
-            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Signin</button>
+            <button id="btn-title" class="title">SIGN IN</button>
+            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Sign in</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
- 
 
 
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>

@@ -1,3 +1,9 @@
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
+
+
 <?php
   $success_msg= $this->session->flashdata('success_msg');
   $error_msg= $this->session->flashdata('error_msg');
@@ -60,7 +66,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="queue-btn-toolbar">
-                  <a href="<?php echo base_url('transaction/TranDone/'.$traninfo['u_tranid2']); ?>" class="queue-next">DONE</a>
+                  <a href="<?php echo base_url('transaction/TranDone/'.$traninfo['u_tranid2']); ?>" class="queue-done">DONE</a>
                 </div>
               </div>
             </div>
@@ -71,3 +77,12 @@
   </main>
 
 </div>
+
+
+<script>
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
+</script>
