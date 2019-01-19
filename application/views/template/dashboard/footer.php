@@ -3,6 +3,8 @@
 
 <script type="text/javascript">
   $('#btn-title').attr('disabled', 'disabled');
+  $('#btn-title-up').attr('disabled', 'disabled');
+  
   $(function () {
   $('#modalUpdate').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget);

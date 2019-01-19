@@ -2,6 +2,8 @@
 <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
 <script type="text/javascript">
+  $('#btn-title').attr('disabled', 'disabled');
+
   function tick(el){
       $(".show-pass").attr('type', el.checked ? 'text':'password');
       }
