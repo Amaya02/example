@@ -26,8 +26,13 @@
           </a>
         </li>
         <li>
-          <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>company/transaction">
-            <i class="glyphicon glyphicon-tasks"></i><em>TRANSACTION</em>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/transaction">
+            <i class="glyphicon glyphicon-list"></i><em>TRANSACTIONS</em>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>company/accounts">
+            <i class="glyphicon glyphicon-tasks"></i><em>ACCOUNTS</em>
           </a>
         </li>
         <li>
@@ -63,7 +68,7 @@
               <table class="table table-borderless" id="myTable2">
                 <thead>
                   <tr>
-                    <th>ID</th>
+                    <th>WINDOW ID</th>
                     <th>ACCOUNT NAME</th>
                     <th>TRANSACTION</th>
                     <th>TIME</th>
@@ -119,15 +124,23 @@
               <div class="form-group">
                 <i class="glyphicon glyphicon-user"></i>
                 <input class="TranA" type="text" value="<?php echo $metadata['username']; ?>@"" name="tranacc1" readonly>
-                <input class="TranA" type="text" placeholder="Account name" name="tranacc" required>
+                <input class="TranA" type="text" placeholder="Account name" name="tranacc" 
+                pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" required>
               </div>
               <div class="form-group">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" placeholder="Password" name="tranpass" required>
+                <input type="password" placeholder="Password" name="tranpass" 
+                pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" required>
               </div>
               <div class="form-group">
                 <i class="glyphicon glyphicon-tasks"></i>
-                <input type="text" placeholder="Transaction Name" name="tranname" required>
+                <?php 
+                    echo '<select name="tranname" required>';
+                    foreach($type as $coun){
+                      echo '<option value="'.$coun['t_type'].'">'.$coun['t_type'].'</option>';
+                    }
+                    echo '</select>';?>
+                  </select>
               </div>
               <div class="form-group">
                 <i class="glyphicon glyphicon-time"></i>
@@ -141,7 +154,7 @@
               </div>
             </div>
             <div class="footer">
-                <button  id="btn-title"  data-dismiss="modal">ADD TRANSACTION</button> 
+                <button  id="btn-title"  data-dismiss="modal">ADD ACCOUNT</button> 
                 <button type="Submit" value="submit" id="btn-transac" data-toggle="modal" >Add</button>
             </div>
           </form>
@@ -165,15 +178,23 @@
               <div class="form-group">
                 <i class="glyphicon glyphicon-user"></i>
                 <input class="TranA" type="text" value="<?php echo $metadata['username']; ?>@"" name="tranacc1" readonly>
-                <input class="TranA" type="text" placeholder="Account name" name="tranacc" required>
+                <input class="TranA" type="text" placeholder="Account name" name="tranacc" 
+                pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" required>
               </div>
               <div class="form-group">
                 <i class="glyphicon glyphicon-lock"></i>
-                <input type="password" placeholder="Password" name="tranpass" required>
+                <input type="password" placeholder="Password" name="tranpass" 
+                pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" required>
               </div>
               <div class="form-group">
                 <i class="glyphicon glyphicon-tasks"></i>
-                <input type="text" placeholder="Transaction Name" name="tranname" id="tranname" required>
+                <?php 
+                    echo '<select name="tranname" id="tranname" required>';
+                    foreach($type as $coun){
+                      echo '<option value="'.$coun['t_type'].'">'.$coun['t_type'].'</option>';
+                    }
+                    echo '</select>';?>
+                  </select>
               </div>
               <div class="form-group">
                 <i class="glyphicon glyphicon-time"></i>
@@ -187,7 +208,7 @@
               </div>
             </div>
             <div class="footer">
-              <button  id="btn-title-up"  data-dismiss="modal">UPDATE TRANSACTION</button> 
+              <button  id="btn-title-up"  data-dismiss="modal">UPDATE ACCOUNT</button> 
               <button type="Submit" value="submit" id="btn-transac-up" data-toogle="modal">UPDATE</button>
             </div>
           </form>       

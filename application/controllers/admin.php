@@ -134,7 +134,9 @@ class admin extends CI_Controller {
 	}
 
 	public function logout(){
+		$admin = array('adminid','username','email','password','fname','lname','address','country','cnum');
 		$this->session->set_userdata('validatedadmin',false);
+		$this->session->unset_userdata($admin);
 		$base=base_url();
 		redirect($base);
 	}

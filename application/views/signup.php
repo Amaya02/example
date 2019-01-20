@@ -34,13 +34,13 @@
                                 <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process'>
                                     <div class="row">
                                       <div class="col-sm-4">
-                                        <input required type="text" name="username" placeholder="Username" />
+                                        <input required pattern=".{6,50}" type="text" name="username" placeholder="Username" title="Minimum of 6 characters, maximum of 50 characters"/>
                                       </div>
                                       <div class="col-sm-4">
                                         <input required type="email" name="email" placeholder="Email Address" />
                                       </div>
                                       <div class="col-sm-4">
-                                        <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,15}" title="Minimum of 6 characters, maximum of 20 characters" />
+                                        <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" />
                                       </div>
                                     </div>
                                     <div class="row">

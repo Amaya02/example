@@ -52,7 +52,7 @@
             <form class="form-class1" autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>saveupdateaccount'>
               <div class="row">
                 <div class="col-sm-6 setting-form">
-                  <input required type="text" name="username" placeholder="Username" value="<?php echo $metadata['username'];?>" />
+                  <input required type="text" name="username" placeholder="Username" value="<?php echo $metadata['username'];?>" pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" />
                 </div>
                 <div class="col-sm-6 setting-form">
                   <input required type="email" name="email" placeholder="Email Address" value="<?php echo $metadata['email'];?>"/>

@@ -27,7 +27,12 @@
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/transaction">
-            <i class="glyphicon glyphicon-tasks"></i><em>TRANSACTION</em>
+            <i class="glyphicon glyphicon-list"></i><em>TRANSACTIONS</em>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/accounts">
+            <i class="glyphicon glyphicon-tasks"></i><em>ACCOUNTS</em>
           </a>
         </li>
         <li>
@@ -112,7 +117,8 @@
                   <input class="show-pass" type="password" placeholder="Current Password" name="currentpass" required>
               </div>
               <div class="form-group setting-form-grp">
-                <input class="show-pass"  type="password" placeholder="New Password" name="newpass" required>
+                <input class="show-pass"  type="password" placeholder="New Password" name="newpass" 
+                pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" required>
               </div>
               <div class="form-check setting-form-chck">
                 <input type="checkbox" class="form-check-input" id="remember" onchange="tick(this)"> 

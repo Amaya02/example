@@ -39,7 +39,7 @@ class transaction extends CI_Controller {
 		$this->load->view("template/transaction/footer");
 	}
 
-	public function NotifyUser($userid){
+	public function NotifyUser($userid,$u_tranid){
 		$data['metadata']=$this->session->userdata();
 		$data['token'] = $this->user_model->getUserToken($userid);
 		$data['comp'] = $this->user_model->getCompany($data['metadata']['companyid']);
@@ -56,14 +56,13 @@ class transaction extends CI_Controller {
  
         // optional payload
         $payload = array();
-        $payload['team'] = 'India';
-        $payload['score'] = '5.6';
+        $payload['u_tranid'] = $u_tranid;
  
         // notification title
-        $title = $data['comp']['companyname']." - ".$data['metadata']['transacname'];
+        $title = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname'];
          
         // notification message
-        $message = "Window for ".$data['metadata']['transacname']." is OPEN";
+        $message = "Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." is OPEN";
          
         // push type - single user / topic
         $push_type = "individual";
@@ -137,7 +136,9 @@ class transaction extends CI_Controller {
 	}
 
 	public function logout(){
+		$transaction = array('transacid','companyid','tranacc','tranpass','transacname','starttime','endtime','estimatedtime');
 		$this->session->set_userdata('validatedtransac',false);
+		$this->session->unset_userdata($transaction);
 		$base=base_url();
 		redirect($base);
 	}

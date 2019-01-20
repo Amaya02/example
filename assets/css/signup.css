@@ -1,4 +1,7 @@
-
+@font-face {
+  src: url(../fonts/copperplate.ttf);
+  font-family: copper;
+}
 .bg-signup {
   background-color: #4b4b4b;
   padding: 5% 50px 9% 50px;
@@ -31,7 +34,7 @@ text-align: center;
 width: 30%; 
 height: 100%;
 padding: 12px; 
-font-family: Copperplate Gothic;
+font-family: copper;
 font-size: 18pt;
 }
 

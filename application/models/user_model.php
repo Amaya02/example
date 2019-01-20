@@ -122,6 +122,34 @@ class user_model extends CI_Model {
     return $transaction;
   }
 
+  public function getTransactionsType($companyid){
+    $transaction = array();
+    $this->db->select('*');
+    $this->db->from('transaction_type');
+    $this->db->where('companyid',$companyid);
+    //run the query
+    $query = $this->db->get();
+    $rs=$query->result_array();
+    foreach($rs as $r){
+      $info = array(
+        't_type' => $r['t_type'],
+        't_id' => $r['t_id']
+      );
+      $transaction[] = $info;
+    }
+    return $transaction;
+  }
+
+  public function getTransactionsType0($companyid){
+    $transaction = array();
+    $this->db->select('*');
+    $this->db->from('transaction_type');
+    $this->db->where('companyid',$companyid);
+    //run the query
+    $query = $this->db->get();
+    return $query->num_rows();
+  }
+
   public function getUserToken($userid){
     $transaction = array();
     $this->db->select('*');
@@ -223,6 +251,8 @@ class user_model extends CI_Model {
         'esti_date' => $r['esti_date'],
         'date_tran' => $r['date_tran'],
         'esti_start' => $r['esti_start'],
+        'u_tranid' => $r['u_tranid'],
+        'message' => $r['message'],
         'status' => $r['status']
       );
       $users[] = $info;
@@ -235,6 +265,21 @@ class user_model extends CI_Model {
       $this->db->select('*');
       $this->db->from('transaction');
       $this->db->where('tranacc',$username);
+      $query=$this->db->get();
+ 
+      if($query->num_rows()>0){
+        return false;
+      }else{
+        return true;
+      }
+  }
+
+  public function tranuser_checktype($type,$id){
+ 
+      $this->db->select('*');
+      $this->db->from('transaction_type');
+      $this->db->where('t_type',$type);
+      $this->db->where('companyid',$id);
       $query=$this->db->get();
  
       if($query->num_rows()>0){
@@ -274,6 +319,16 @@ class user_model extends CI_Model {
     $this->db->insert('transaction', $transaction);
   }
 
+  public function addTransactionsType($companyid){
+    $acc=$this->input->post('trantype');
+
+    $transaction=array(
+      'companyid' => $companyid,
+      't_type' => $acc
+    );
+    $this->db->insert('transaction_type', $transaction);
+  }
+
   public function updateTransactions($companyid){
     $acc=$this->input->post('tranacc1').''.$this->input->post('tranacc');
     $id =$this->input->post('user_id');
@@ -295,6 +350,11 @@ class user_model extends CI_Model {
   public function deleteTransactions($transacid){
     $this->db->where('transacid',$transacid);
     $this->db->delete('transaction');
+  }
+
+  public function deleteTransactionsType($id){
+    $this->db->where('t_id',$id);
+    $this->db->delete('transaction_type');
   }
 
   public function getTransactionsInfo($tranid,$transacid){

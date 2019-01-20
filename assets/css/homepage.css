@@ -1,3 +1,7 @@
+@font-face {
+  src: url(../fonts/brannboll.ttf);
+  font-family: branbol;
+}
 .carousel{
 	z-index: 0;
 	width: 100%;
@@ -36,7 +40,7 @@
 
 .carousel-caption h1{
    text-align: left;
-   font-family:"Brannboll Fet";
+   font-family:branbol;
    font-size: 3.5em;
 }
 

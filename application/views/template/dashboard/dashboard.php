@@ -15,7 +15,12 @@
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/transaction">
-            <i class="glyphicon glyphicon-tasks"></i><em>TRANSACTION</em>
+            <i class="glyphicon glyphicon-list"></i><em>TRANSACTIONS</em>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/accounts">
+            <i class="glyphicon glyphicon-tasks"></i><em>ACCOUNTS</em>
           </a>
         </li>
         <li>
@@ -64,16 +69,25 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-lg-4">
             <div class="dash-border">
               <div class="dash-links">
-                <p class="big"><i class="glyphicon glyphicon-tasks"></i><?php echo $transactions['num_tran']; ?></p>
-                <p class="medium"><b>TRANSACTION</b></p>
-                <a class="small" href="<?php echo base_url(); ?>company/transaction"><b>VIEW TRANSACTION ></b></a>
+                <p class="big"><i class="glyphicon glyphicon-list"></i><?php echo $transactions['num_type']; ?></p>
+                <p class="medium"><b>TRANSACTIONS</b></p>
+                <a class="small" href="<?php echo base_url(); ?>company/transaction"><b>VIEW TRANSACTIONS ></b></a>
               </div>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-lg-4">
+            <div class="dash-border">
+              <div class="dash-links">
+                <p class="big"><i class="glyphicon glyphicon-tasks"></i><?php echo $transactions['num_tran']; ?></p>
+                <p class="medium"><b>ACCOUNTS</b></p>
+                <a class="small" href="<?php echo base_url(); ?>company/accounts"><b>VIEW ACCOUNTS ></b></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
             <div class="dash-border">
               <div class="dash-links">
                 <p class="big"><i class="glyphicon glyphicon-user"></i><?php echo $userinfo['num_users']; ?></p>

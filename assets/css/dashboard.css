@@ -371,6 +371,23 @@ a.active {
   }
 }
 
+@media (min-width: 1200px) {
+   .company-dash .dash-links .big{
+    font-size: 55px;
+  }
+
+  .company-dash .dash-links .medium{
+    font-size: 30px;
+  }
+  
+  .company-dash .dash-links .big i{
+    font-size: 35px;
+  }
+  .company-dash .dash-border{
+    height: 250px;
+  }
+}
+
 /* TRANSACTION */
 .company-tran{
     width: 100%;
@@ -447,12 +464,12 @@ div.modal{
    margin-right: 5px;
 }
 
-input:focus {
+select:focus,input:focus{
    outline:none;
    border-bottom:3px solid #000;
 }
 
-input{
+input, select{
    border: none;
    border-bottom:3px solid #f8a513;
    width: 80%;
@@ -933,6 +950,16 @@ div.queue-title {
     margin-bottom: 20px;
 }
 
+div.queue-title2 {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-family: "Copperplate Gothic";
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
 
 div.queue-main {
     width: 50%;
@@ -1063,6 +1090,22 @@ div.queue-main {
 
 .company-dash .tran-name{
    font-size: 25px;
+}
+
+.footer #btn-title2{
+   color: black;
+   text-align: center;
+   position: relative;     
+   top: -185px;
+   padding:10px;
+   font-family:"Copperplate Gothic";
+   font-weight: bold;  
+   font-size: 30px;
+   font-color:black;
+   background-color: #f8a513;
+   border-radius: none;
+   border: none;
+   left: 5%;
 }
 
 

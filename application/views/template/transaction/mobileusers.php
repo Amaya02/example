@@ -54,6 +54,7 @@
                     <th>Date Generated</th>
                     <th>Date & Time of Transaction</th>
                     <th>Status</th>
+                    <th>Message</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -66,8 +67,9 @@
                       <td>'.$post['date_tran'].'</td>
                       <td>'.$post['esti_date'].' - '.$post['esti_start'].'</td>
                       <td>'.$post['status'].'</td>
+                      <td>'.$post['message'].'</td>
                       <td>
-                      <a class="btn-transact pull-right" href="'.base_url('transaction/NotifyUser/'.$post['id']).'">
+                      <a class="btn-transact pull-right" href="'.base_url('transaction/NotifyUser/'.$post['id'].'/'.$post['u_tranid']).'">
                       Notify
                       </td>
                     </tr> ';

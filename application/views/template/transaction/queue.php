@@ -39,7 +39,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="queue-title"><?php echo $metadata['tranacc']; ?> - <?php echo $metadata['transacname']; ?></div>
+            <div class="queue-title">Window <?php echo $metadata['transacid']; ?> - <?php echo $metadata['transacname']; ?></div>
+            <div class="queue-title2"><?php echo $metadata['tranacc']; ?></div>
           </div>
         </div>
         <form name="form" action="<?php echo base_url(); ?>transaction/getTranInfo" method="post">

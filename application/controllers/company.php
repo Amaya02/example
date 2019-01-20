@@ -15,19 +15,31 @@ class company extends CI_Controller {
 		$data['title'] = "DASHBOARD";
 		$data['transactions']['num_tran'] = $this->user_model->getTransactions0($data['metadata']['companyid']);
 		$data['userinfo']['num_users'] = $this->user_model->getUsers0($data['metadata']['companyid']);
+		$data['transactions']['num_type'] = $this->user_model->getTransactionsType0($data['metadata']['companyid']);
 
 		$this->load->view("template/dashboard/header",$data);
 		$this->load->view("template/dashboard/dashboard",$data);
 		$this->load->view("template/dashboard/footer");	
 	}
 
-	public function transaction(){
+	public function accounts(){
 		$data['metadata']=$this->session->userdata();
-		$data['title'] = "TRANSACTION";
+		$data['title'] = "ACCOUNTS";
 		$data['transactions'] = $this->user_model->getTransactions($data['metadata']['companyid']);
+		$data['type'] = $this->user_model->getTransactionsType($data['metadata']['companyid']);
 
 		$this->load->view("template/dashboard/header",$data);
 		$this->load->view("template/dashboard/transaction",$data);
+		$this->load->view("template/dashboard/footer");	
+	}
+
+	public function transaction(){
+		$data['metadata']=$this->session->userdata();
+		$data['title'] = "TRANSACTIONS";
+		$data['transactions'] = $this->user_model->getTransactionsType($data['metadata']['companyid']);
+
+		$this->load->view("template/dashboard/header",$data);
+		$this->load->view("template/dashboard/transactiontype",$data);
 		$this->load->view("template/dashboard/footer");	
 	}
 
@@ -123,10 +135,23 @@ class company extends CI_Controller {
 		$check=$this->user_model->tranuser_check($acc);
 		if($check){
 			$this->user_model->addTransactions($data['metadata']['companyid']);
-			redirect('company/transaction','refresh');
+			redirect('company/accounts','refresh');
 		}
 		else{
 			$this->session->set_flashdata('error_msg', 'Account Name already Exists');
+			redirect('company/accounts','refresh');
+		}
+	}
+
+	public function addtransactiontype(){
+		$data['metadata']=$this->session->userdata();
+		$check=$this->user_model->tranuser_checktype($this->input->post('trantype'),$data['metadata']['companyid']);
+		if($check){
+			$this->user_model->addTransactionsType($data['metadata']['companyid']);
+			redirect('company/transaction','refresh');
+		}
+		else{
+			$this->session->set_flashdata('error_msg', 'Transaction already Exists');
 			redirect('company/transaction','refresh');
 		}
 	}
@@ -139,11 +164,11 @@ class company extends CI_Controller {
 		if($check){
 			$this->user_model->updateTransactions($data['metadata']['companyid']);
 			$this->session->set_flashdata('success_msg', 'Updated Successfully!');
-			redirect('company/transaction','refresh');
+			redirect('company/accounts','refresh');
 		}
 		else{
 			$this->session->set_flashdata('error_msg', 'Account Name already Exists');
-			redirect('company/transaction','refresh');
+			redirect('company/accounts','refresh');
 		}
 	}
 
@@ -151,11 +176,21 @@ class company extends CI_Controller {
 		$data['metadata']=$this->session->userdata();
 		$this->user_model->deleteTransactions($transacid);
 		$this->session->set_flashdata('success_msg', 'Deleted Successfully!');
+		redirect('company/accounts','refresh');
+	}
+
+	public function deletetransactiontype($id){
+		$data['metadata']=$this->session->userdata();
+		$this->user_model->deleteTransactionsType($id);
+		$this->session->set_flashdata('success_msg', 'Deleted Successfully!');
 		redirect('company/transaction','refresh');
 	}
 
 	public function logout(){
+		$company = array('companyid','username','companyname','email','password','address','country','cnumber',
+            'tnumber');
 		$this->session->set_userdata('validatedcompany',false);
+		$this->session->unset_userdata($company);
 		$base=base_url();
 		redirect($base);
 	}

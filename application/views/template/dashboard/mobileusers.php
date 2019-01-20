@@ -27,7 +27,12 @@
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/transaction">
-            <i class="glyphicon glyphicon-tasks"></i><em>TRANSACTION</em>
+            <i class="glyphicon glyphicon-list"></i><em>TRANSACTIONS</em>
+          </a>
+        </li>
+        <li>
+          <a class="sidebar-nav-link" href="<?php echo base_url(); ?>company/accounts">
+            <i class="glyphicon glyphicon-tasks"></i><em>ACCOUNTS</em>
           </a>
         </li>
         <li>

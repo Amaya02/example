@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 04, 2019 at 04:12 PM
+-- Generation Time: Jan 20, 2019 at 03:02 PM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -31,13 +31,13 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE IF NOT EXISTS `admin` (
   `adminid` int(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `fname` varchar(50) NOT NULL,
-  `lname` varchar(50) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `country` varchar(50) NOT NULL,
+  `email` varchar(500) NOT NULL,
+  `password` varchar(70) NOT NULL,
+  `username` varchar(70) NOT NULL,
+  `fname` varchar(500) NOT NULL,
+  `lname` varchar(500) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `country` varchar(500) NOT NULL,
   `cnum` varchar(50) NOT NULL,
   PRIMARY KEY (`adminid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -58,12 +58,12 @@ INSERT INTO `admin` (`adminid`, `email`, `password`, `username`, `fname`, `lname
 DROP TABLE IF EXISTS `company`;
 CREATE TABLE IF NOT EXISTS `company` (
   `companyid` int(20) NOT NULL AUTO_INCREMENT,
-  `username` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `companyname` varchar(100) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `country` varchar(50) NOT NULL,
+  `username` varchar(70) NOT NULL,
+  `email` varchar(500) NOT NULL,
+  `password` varchar(70) NOT NULL,
+  `companyname` varchar(500) NOT NULL,
+  `address` varchar(500) NOT NULL,
+  `country` varchar(100) NOT NULL,
   `cnumber` varchar(50) NOT NULL,
   `tnumber` varchar(50) NOT NULL,
   PRIMARY KEY (`companyid`)
@@ -78,15 +78,29 @@ CREATE TABLE IF NOT EXISTS `company` (
 DROP TABLE IF EXISTS `transaction`;
 CREATE TABLE IF NOT EXISTS `transaction` (
   `transacid` int(20) NOT NULL AUTO_INCREMENT,
-  `tranacc` varchar(50) NOT NULL,
-  `tranpass` varchar(50) NOT NULL,
+  `tranacc` varchar(70) NOT NULL,
+  `tranpass` varchar(70) NOT NULL,
   `companyid` int(20) NOT NULL,
-  `transacname` varchar(50) NOT NULL,
+  `transacname` varchar(500) NOT NULL,
   `starttime` time NOT NULL,
   `endtime` time NOT NULL,
   `estimatedtime` int(20) NOT NULL,
   PRIMARY KEY (`transacid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction_type`
+--
+
+DROP TABLE IF EXISTS `transaction_type`;
+CREATE TABLE IF NOT EXISTS `transaction_type` (
+  `t_id` int(20) NOT NULL AUTO_INCREMENT,
+  `companyid` int(20) NOT NULL,
+  `t_type` varchar(500) NOT NULL,
+  PRIMARY KEY (`t_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -98,11 +112,11 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
   `username` varchar(70) NOT NULL,
-  `fname` varchar(70) NOT NULL,
-  `lname` varchar(50) NOT NULL,
+  `fname` varchar(500) NOT NULL,
+  `lname` varchar(500) NOT NULL,
   `num` varchar(50) NOT NULL,
-  `password` varchar(40) NOT NULL,
-  `email` varchar(50) NOT NULL,
+  `password` varchar(70) NOT NULL,
+  `email` varchar(500) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -123,6 +137,7 @@ CREATE TABLE IF NOT EXISTS `user_transac` (
   `date_tran` datetime NOT NULL,
   `esti_date` date NOT NULL,
   `esti_start` time NOT NULL,
+  `message` varchar(400) NOT NULL,
   PRIMARY KEY (`u_tranid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;
