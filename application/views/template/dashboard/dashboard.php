@@ -74,7 +74,7 @@
               <div class="dash-links">
                 <p class="big"><i class="glyphicon glyphicon-list"></i><?php echo $transactions['num_type']; ?></p>
                 <p class="medium"><b>TRANSACTIONS</b></p>
-                <a class="small" href="<?php echo base_url(); ?>company/transaction"><b>VIEW TRANSACTIONS ></b></a>
+                <a class="small" href="<?php echo base_url(); ?>company/transaction"><b><span>VIEW TRANSACTIONS</span></b></a>
               </div>
             </div>
           </div>
@@ -83,7 +83,7 @@
               <div class="dash-links">
                 <p class="big"><i class="glyphicon glyphicon-tasks"></i><?php echo $transactions['num_tran']; ?></p>
                 <p class="medium"><b>ACCOUNTS</b></p>
-                <a class="small" href="<?php echo base_url(); ?>company/accounts"><b>VIEW ACCOUNTS ></b></a>
+                <a class="small" href="<?php echo base_url(); ?>company/accounts"><b><span>VIEW ACCOUNTS</span></b></a>
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@
               <div class="dash-links">
                 <p class="big"><i class="glyphicon glyphicon-user"></i><?php echo $userinfo['num_users']; ?></p>
                 <p class="medium"><b>MOBILE USERS</b></p>
-                <a class="small" href="<?php echo base_url(); ?>company/mobileusers"><b>VIEW MOBILE USERS ></b></a>
+                <a class="small" href="<?php echo base_url(); ?>company/mobileusers"><b><span>VIEW MOBILE USERS</span></b></a>
               </div>
             </div>
           </div>

@@ -99,7 +99,7 @@
       <div class="border">
         <div class="modal-content">
           <div class="header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
           <form action="<?php echo base_url(); ?>company/addtransactiontype" autocomplete="off" enctype="multipart/form-data" role="form" method="post">
             <div class="modal-body">
@@ -109,14 +109,14 @@
               </div>
             </div>
             <div class="footer">
-                <button  id="btn-title2"  data-dismiss="modal">ADD TRANSACTION</button> 
+                <button  id="btn-title" class="title0"  data-dismiss="modal">ADD TRANSACTION</button> 
                 <button type="Submit" value="submit" id="btn-transac" data-toggle="modal" >Add</button>
             </div>
           </form>
-        </div>
       </div>
     </div>
   </div>
+</div>
 
 
 

@@ -1,16 +1,7 @@
-<header class="header-home">
-      <nav>
-            <div class="menu-icon">
-                <span class="glyphicon glyphicon-align-justify"></span>
-            </div>
-                <a href="<?php echo base_url(); ?>"><img class="logo" src="<?php echo base_url('assets/images/LOGO.png'); ?>"></a>
-                              <ul class="menu">
-                                  <li><a href="<?php echo base_url(); ?>">HOME</a></li>
-                                  <li class="d-hide">|</li>
-                                  <li><a data-toggle="modal" data-target="#myModal">SIGN IN</a></li>
-                              </ul>
-      </nav>
-</header>
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
 
 <?php
     $error_msg=$this->session->flashdata('error_msg');
@@ -20,107 +11,135 @@
 ?>
 
 <div class="bg-signup">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="col-top"><b>Create an Account</b></div>
-                <div class="border">
-                    <div class="bgwhite">
-                        <div class="row">
-                            <div class="col-sm-4 add-side">
-                                W E L C O M E ! ! !
-                            </div>
-                            <div class="col-sm-8 sign-form">
-                                <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process'>
-                                    <div class="row">
-                                      <div class="col-sm-4">
-                                        <input required pattern=".{6,50}" type="text" name="username" placeholder="Username" title="Minimum of 6 characters, maximum of 50 characters"/>
-                                      </div>
-                                      <div class="col-sm-4">
-                                        <input required type="email" name="email" placeholder="Email Address" />
-                                      </div>
-                                      <div class="col-sm-4">
-                                        <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" />
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-sm-6">
-                                        <input required type="text" name="companyname" placeholder="Company Name" />
-                                      </div>
-                                      <div class="col-sm-6">
-                                        <?php 
-                                        $country = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
-                                        echo '<select name="country" id="country" required>';
-                                        foreach($country as $coun){
-                                            echo '<option value="'.$coun.'">'.$coun.'</option>';
-                                        }
-                                        echo '</select>';?>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                      <div class="col-sm-12">
-                                        <input required type="text" name="address" placeholder="Address" />
-                                      </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <input required type="text" name="cnumber" placeholder="Phone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <input required type="text" name="tnumber" placeholder="TIN Number" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <button type="submit" class="btn-submit" >Register</button>
-                                        <a class="back" href="<?php echo base_url(); ?>">BACK</a>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+  <header class="header-home">
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url('assets/images/LOGO.png'); ?>" alt="Logo"></a>
         </div>
+        <div id="navbar3" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<?php echo base_url(); ?>">Home</a></li>
+            <li class="d-hide">|</li>
+            <li><a href="" data-toggle="modal" data-target="#myModal">SIGN IN</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="signup-wrap">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="col-top"><b>Create an Account</b></div>
+          <div class="border">
+            <div class="bgwhite">
+              <div class="row">
+                <div class="col-sm-4 add-side">
+                  <h2>Less time in queue? Register your company now!</h2>
+                  <p><span class="glyphicon glyphicon-ok"></span> Reduce your queue times</p>
+                  <p><span class="glyphicon glyphicon-ok"></span> Serve more customers everyday</p>
+                  <p><span class="glyphicon glyphicon-ok"></span> Improve staff efficiencies</p>
+                </div>
+                <div class="col-sm-8 sign-form">
+                  <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>signup/process'>
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <input required pattern=".{6,50}" type="text" name="username" placeholder="Username" title="Minimum of 6 characters, maximum of 50 characters"/>
+                      </div>
+                      <div class="col-sm-4">
+                        <input required type="email" name="email" placeholder="Email Address" />
+                      </div>
+                      <div class="col-sm-4">
+                        <input required type="password" name="pass" id="pass" placeholder="Password" pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <input required type="text" name="companyname" placeholder="Company Name" />
+                      </div>
+                      <div class="col-sm-6">
+                        <?php 
+                          $country = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegowina", "Botswana", "Bouvet Island", "Brazil", "British Indian Ocean Territory", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Cambodia", "Cameroon", "Canada", "Cape Verde", "Cayman Islands", "Central African Republic", "Chad", "Chile", "China", "Christmas Island", "Cocos (Keeling) Islands", "Colombia", "Comoros", "Congo", "Congo, the Democratic Republic of the", "Cook Islands", "Costa Rica", "Cote d'Ivoire", "Croatia (Hrvatska)", "Cuba", "Cyprus", "Czech Republic", "Denmark", "Djibouti", "Dominica", "Dominican Republic", "East Timor", "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia", "Falkland Islands (Malvinas)", "Faroe Islands", "Fiji", "Finland", "France", "France Metropolitan", "French Guiana", "French Polynesia", "French Southern Territories", "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Heard and Mc Donald Islands", "Holy See (Vatican City State)", "Honduras", "Hong Kong", "Hungary", "Iceland", "India", "Indonesia", "Iran (Islamic Republic of)", "Iraq", "Ireland", "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Korea, Democratic People's Republic of", "Korea, Republic of", "Kuwait", "Kyrgyzstan", "Lao, People's Democratic Republic", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg", "Macau", "Macedonia, The Former Yugoslav Republic of", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Federated States of", "Moldova, Republic of", "Monaco", "Mongolia", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Niue", "Norfolk Island", "Northern Mariana Islands", "Norway", "Oman", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Poland", "Portugal", "Puerto Rico", "Qatar", "Reunion", "Romania", "Russian Federation", "Rwanda", "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Slovak Republic)", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Georgia and the South Sandwich Islands", "Spain", "Sri Lanka", "St. Helena", "St. Pierre and Miquelon", "Sudan", "Suriname", "Svalbard and Jan Mayen Islands", "Swaziland", "Sweden", "Switzerland", "Syrian Arab Republic", "Taiwan, Province of China", "Tajikistan", "Tanzania, United Republic of", "Thailand", "Togo", "Tokelau", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands", "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States", "United States Minor Outlying Islands", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Vietnam", "Virgin Islands (British)", "Virgin Islands (U.S.)", "Wallis and Futuna Islands", "Western Sahara", "Yemen", "Yugoslavia", "Zambia", "Zimbabwe");
+                          echo '<select name="country" id="country" required>';
+                          foreach($country as $coun){
+                            echo '<option value="'.$coun.'">'.$coun.'</option>';
+                          }
+                          echo '</select>';
+                        ?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <input required type="text" name="address" placeholder="Address" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-6">
+                        <input required type="text" name="cnumber" placeholder="Phone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+                      </div>
+                      <div class="col-sm-6">
+                        <input required type="text" name="tnumber" placeholder="TIN Number" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <button type="submit" class="btn-submit" >Register</button>
+                      <a class="back" href="<?php echo base_url(); ?>">BACK</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <footer class="footer-home">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="copyright">Copyright &copy; GENQU3 2018</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-s">
-    <div class="border">
+  <div class="modal-dialog">
+    <div class="border1">
       <div class="modal-content">
         <div class="header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
-          <div class="modal-body">
+          <div class="body">
             <div class="form-group">
               <span class="glyphicon glyphicon-user"></span>
               <input type="text" name="username" id="username" placeholder="Enter Username" required />
               <br><span class="glyphicon glyphicon-lock"></span>
               <input type="password" id="password" name="password" placeholder="Enter password" required />
-              <br><input class="form-check-input" type="checkbox" onclick="myFunction()" />Show Password
+              <br><input class="form-check-input" type="checkbox" onclick="myFunction()" /><b>Show Password</b>
             </div>      
           </div>
           <div class="footer">
-            <button  id="btn-title"  data-dismiss="modal">SIGN IN</button> 
-            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Signin</button>
+            <button id="btn-title" class="title">SIGN IN</button>
+            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Sign in</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
-
-<footer class="footer-home">
-    <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <span class="copyright">Copyright &copy; GENQU3 2018</span>
-          </div>
-          <div class="col-md-4">
-          </div>
-          <div class="col-md-4">
-          </div>
-        </div>
-      </div>
-    </footer>

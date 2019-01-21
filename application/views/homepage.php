@@ -1,18 +1,7 @@
-<header class="header-home">
-  <nav>
-    <div class="menu-icon">
-      <span class="glyphicon glyphicon-align-justify"></span>
-    </div>
-    <a href="<?php echo base_url(); ?>"><img class="logo" src="<?php echo base_url('assets/images/LOGO.png'); ?>"></a>
-    <ul class="menu">
-      <li><a href="#home">HOME</a></li>
-      <li><a href="#aboutus">ABOUT US</a></li>
-      <li><a href="#contactus">CONTACT US</a></li>
-      <li class="d-hide">|</li>
-      <li><a data-toggle="modal" data-target="#myModal">SIGN IN</a></li>
-    </ul>
-  </nav>
-</header>
+<!-- LOADING PAGE -->
+<div class="loader">
+    <div class="section-out" id="section-out"></div>
+</div>
 
 <?php
   $success_msg= $this->session->flashdata('success_msg');
@@ -26,7 +15,33 @@
   }
 ?>
 
+<header class="header-home">
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>"><img src="<?php echo base_url('assets/images/LOGO.png'); ?>" alt="Logo"></a>
+        </div>
+        <div id="navbar3" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#aboutus">About Us</a></li>
+            <li><a href="#contactus">Contact Us</a></li>
+            <li class="d-hide">|</li>
+            <li><a href="" data-toggle="modal" data-target="#myModal">SIGN IN</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+  
   <ul class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -35,7 +50,7 @@
   <div class="carousel-inner" role="listbox">
     <div class="item active"> 
       <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>"> 
-      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+      <img id="img2" src="<?php echo base_url('assets/images/BG480.jpg'); ?>"> 
       <div class="carousel-caption">
         <h1>Start with us!</h1>
         <p>A convenient way to manage <br/> your queuing system.</p>
@@ -43,25 +58,27 @@
       </div>
     </div>
     <div class="item">
-      <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
-      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+      <img class="img1" src="<?php echo base_url('assets/images/ABOUT.jpg'); ?>">
+      <img id="img2" src="<?php echo base_url('assets/images/ABOUT480.jpg'); ?>"> 
     </div>
     <div class="item"> 
-      <img class="img1" src="<?php echo base_url('assets/images/BG.jpg'); ?>">
-      <img id="img2" src="<?php echo base_url('assets/images/480px.jpg'); ?>"> 
+      <img class="img1" src="<?php echo base_url('assets/images/CONTACT.jpg'); ?>">
+      <img id="img2" src="<?php echo base_url('assets/images/CONTACT480.jpg'); ?>"> 
     </div>
   </div>  
+<a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 </div>
 
 <div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog modal-s">
-    <div class="border">
+  <div class="modal-dialog">
+    <div class="border1">
       <div class="modal-content">
         <div class="header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <form action='<?php base_url();?>login' method='post' name='process' autocomplete="off">
-          <div class="modal-body">
+          <div class="body">
             <div class="form-group">
               <span class="glyphicon glyphicon-user"></span>
               <input type="text" name="username" id="username" placeholder="Enter Username" required />
@@ -71,14 +88,11 @@
             </div>      
           </div>
           <div class="footer">
-            <button  id="btn-title"  data-dismiss="modal">SIGN IN</button> 
-            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Signin</button>
+            <button id="btn-title" class="title">SIGN IN</button>
+            <button type="Submit" value="Login" id="btn-signin" data-toggle="modal" >Sign in</button>
           </div>
         </form>
       </div>
     </div>
   </div>
 </div>
- 
-
-

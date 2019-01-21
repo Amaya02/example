@@ -1,26 +1,35 @@
-@font-face {
-  src: url(../fonts/brannboll.ttf);
-  font-family: branbol;
+@font-face{
+   src: url("../fonts/branbol.ttf");
+   font-family: branbol;
 }
+@font-face{
+   src: url("../fonts/constanb.ttf");
+   font-family: cons;
+}
+@font-face{
+   src: url("../fonts/copperplate.ttf");
+   font-family: copper;
+}
+
 .carousel{
-	z-index: 0;
-	width: 100%;
+   z-index: 0;
+   width: 100%;
 }
 
 #myCarousel{
-	height: 100%;
+   height: 100%;
 }
 
 #myCarousel .item img{
    height: 100%;
- } 
+} 
 
 #myCarousel .item{
    height: 100%;
 }
 
 .carousel-indicators{
-	top: 82%;
+   top: 82%;
 }
 
 .carousel-inner{
@@ -28,7 +37,7 @@
 }
 
 .carousel-inner .item img{
-	width: 100%;
+   width: 100%;
 }
 
 .carousel-caption{
@@ -41,21 +50,22 @@
 .carousel-caption h1{
    text-align: left;
    font-family:branbol;
-   font-size: 3.5em;
+   font-size: 5em;
 }
 
 .carousel-caption p{
    text-align: left;
-   font-family:"Constantia";
+   font-family:cons;
    font-size:40px;
 }
 
 .carousel-caption #btn-signup{
+   -webkit-transition-duration: 0.4s; /* Safari */
+   transition-duration: 0.4s;
    background-color: #f8a513;
-   border:none;
-   border-radius:7px; 
-   padding: 2px 22px;
-   font-family:"Copperplate Gothic";
+   border-radius:5px; 
+   padding: 5px 22px;
+   font-family:copper;
    font-weight:  Bold;
    font-size: 22px;
    color: black;
@@ -66,102 +76,103 @@
    text-decoration: none;
  }
 
-.modal-content .footer{
-   margin-top: 20px;
+a.left, a.right{
+   width: 100px;
 }
 
-.modal-content .footer #btn-signin{
-   color: black;
-   border: none;
-   border-radius:7px;
-   background-color: #f8a513;
-   font-family:"Copperplate Gothic";
-   font-weight: bold;      
-   font-size: 1.1em !important;
-   text-align: center;
-   position: relative;     
-   left: 70px !important;
+#myModal{
+   overflow: hidden;
 }
 
-.modal-content .footer #btn-title{
-   color: black;
-   text-align: center;
-   position: relative; 
-   left: 10%;    
-   top: -275px;
-   padding:10px;
-   font-family:"Copperplate Gothic";
-   font-weight: bold;  
-   font-size: 30px;
-   font-color:black;
-   background-color: #f8a513;
-   border-radius: none;
-   border: none;
-}
-
-.modal-dialog .border{
+div.border1{
    border: 3px solid #f8a513;
    padding: 8px;
-   width: 70%;
-   height: 100%;
+   width:60%;
+   margin: auto;
+   margin-top: 20%;  
 }
 
-.modal-content .header{
-   padding: 25px;
-   margin-right: 5px;
+div.modal-dialog {
+   height: auto;
 }
 
-.modal{
+div.header, div.body{
+   padding: 15px;
+}
+
+div.footer{
+   text-align: right;
+}
+
+div.form-group{
+   margin: 30px 0px 0px 0px;
    text-align: center;
-   position: absolute;
-   transform: translateX(6%);
-   top:100px;
 }
 
-.modal-body i{
-   color:black;
-   font-size: 1.8em;
- }
-
-.modal-body{
-   margin-top:30px;
+div.form-group .form-check-input{
+   margin: 8px;
+   margin-top: 25px;
+   border-radius: 5px;
 }
 
-.modal-content {
-   width:100%;
-   height: 100%;
-}
-
-.modal-dialog {
-   top:90px;
-   margin: 20vh auto 0px auto;
-   display:inline-block;
-}
-
-.modal-body input:focus {
+.body .form-group  input:focus {
    outline:none;
    border-bottom:3px solid #000;
 }
 
-.modal-body .form-group input{
+.body .form-group input{
    border: none;
    border-bottom:3px solid #f8a513;
    padding-top: 10px; 
 }
 
-.modal-body .form-group span {
-   padding-top: 10px; 
+.body .form-group span {
+   color:#000; 
 }
 
-.modal-body .form-group .form-check-input{
-  margin-top: 10px;
+.footer button{
+   -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+   border-style: none;
+   background-color:#f8a513;
+   border-radius: 5px;
+   font-size: 2vh;
+   color:#000;
+   text-align: center;
+   font-family: copper;
+   font-weight: bold;
+   margin-right: 15px;
+   margin-bottom: 15px;
+   padding: 10px;
+}
+.footer button:hover{
+   background-color:#ddd;
+}
+.footer button:focus{
+   outline: none;
+}
+
+.footer button.title{
+   font-family: copper;
+   font-size: 30px;
+   border-style: none;
+   border-radius: 0;
+   transform: translateY(-386%);
+   position:relative;
+   padding: 10px 20px 10px 20px;
+   background-color:#f8a513;
+   color:#000;
+   text-align: center;
+   font-weight:bold;
+   margin:auto;
+   display: block;
 }
 
 @media(max-width: 895px) {
-
       .carousel-caption{ 
       top: 55%;
       }
+
       .carousel-caption h1{
       font-size: 5.5em;
       }
@@ -176,14 +187,12 @@
 }
 
 @media(max-width: 768px) {
-	 
-     .modal{
-      text-align: center;
-      transform: translateX(11%);
-  	  }
+      div.border1{
+      margin-top:23%;
+      }
 
-  	  .carousel-caption{ 
-   	top: 50%;
+     .carousel-caption{ 
+      top: 50%;
      }
    
       .carousel-caption h1{
@@ -199,51 +208,9 @@
       }
 }
 
-@media(max-width: 767px) {
-	  .modal-dialog .border{
-      width:160%;
-		}
-	  .modal{
-      text-align: center;
-      transform: translateX(-10%);
-	   }
-}
-
 @media(max-width: 552px) {
-
-	  .modal-dialog .border{
-	   border: 3px solid #f8a513;
-	   padding: 8px;
-	   width: 140%;
-	   height: 100%;
-	   }
-
-   	.modal{
-   	text-align: center;
-   	position: absolute;
-   	transform: translateX(-9%);
-   	top:100px;
-   	}
-
-   	.modal-body{
-       margin-top:30px;
-   	}
-
-   	.modal-content {
-      width:100%;
-   	height: 100%;
-   	}
-
-   	.modal-content .footer #btn-signin{
-   	left: 7% !important;
-   	}
-
-   	.modal-content .footer #btn-title{
-   	left: 13%;         
-   	}
-
-   	.carousel-caption{ 
-   	top: 50%;
+      .carousel-caption{ 
+      top: 50%;
       }
 
       .carousel-caption h1{
@@ -259,12 +226,19 @@
       }
 }
 
+@media(max-width: 515px) {
+      div.border1{
+      width:85%;
+      margin-top: 28%;
+      }
+}
+
 @media(max-width: 480px) {
-      .carousel-inner	.img1{
+      .carousel-inner   .img1{
       display: none!important;
       }
 
-      .carousel-inner	.img2{
+      .carousel-inner   .img2{
       display:block!important;
       }
 
@@ -283,22 +257,19 @@
       .carousel-caption #btn-signup{
       font-size: 75px;
       }
+
+      a.left, a.right{
+      width: 50px;
+      }
 }
 
 @media(max-width: 452px) {
-	 .modal-dialog .border{
-      border: 3px solid #f8a513;
-      padding: 8px;
-      width: 128%;
-      height: 100%;
-      }  
-
-   	.carousel-caption{ 
-   	top: 50%;
+      .carousel-caption{ 
+      top: 50%;
       }
 
       .carousel-caption h1{
-            font-size: 9.5em;
+      font-size: 9.5em;
       }
 
       .carousel-caption p{
@@ -308,25 +279,37 @@
       .carousel-caption #btn-signup{
       font-size: 75px;
       }
-
 }
 
-@media(max-width: 375px) {
-      .modal-dialog .border{
-      width: 113%;
-      transform: translateX(1%);
-      }     
-
-      .modal-content .footer #btn-title{
-      left: 15%;         
+@media(max-width: 390px){
+      div.border1{
+      width:85%;
+      margin-top: 30%;
       }
+}
 
-      .modal-content .footer #btn-signin{
-      left: 3% !important;
+@media(max-width: 375px) { 
+      .carousel-caption{ 
+      top: 50%;
       }
       
-      .modal{
-      transform: translateX(-5%);  
+      .carousel-caption h1{
+      font-size: 9.5em;
+      }
+
+      .carousel-caption p{
+      font-size:80px;
+      }
+
+      .carousel-caption #btn-signup{
+      font-size: 75px;
+      }
+}
+
+@media(max-width: 320px) { 
+       div.border1{
+      width:90%;
+      margin-top: 40%;
       }
       
       .carousel-caption{ 
@@ -346,24 +329,54 @@
       }
 }
 
-@media(max-width: 320px) {
-   	.modal-dialog .border{ 
-      width: 113%;
-      }    
-       
-      .carousel-caption{ 
-      top: 50%;
-      }
-      
-      .carousel-caption h1{
-      font-size: 9.5em;
-      }
+/*LOADING PAGE*/
+.loader {
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99;
+  background-color:#fff;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.section-out {
+  position: absolute;
+  border: 10px solid transparent;
+  border-radius: 50%;
+}
 
-      .carousel-caption p{
-      font-size:80px;
-      }
+.section-out {
+  width: 100px;
+  height: 100px;
+  border-top: 10px solid #f8a315;
+  border-bottom: 10px solid #000;
+  animation: clockwisespin 2s linear 2;
 
-      .carousel-caption #btn-signup{
-      font-size: 75px;
-      }
+}
+
+.loader .hidden {
+  animation: fadeOut 500s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes clockwisespin {
+  from { 
+    transform: rotate(0deg); 
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes fadeout{
+  100% { 
+    opacity: 0; 
+ 
+    visibility: hidden;
+  }
+  
 }
