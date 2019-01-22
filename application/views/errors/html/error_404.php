@@ -42,6 +42,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	border-radius: 3px;
 	color: #fff;
 	font-size: 20px;
+	-webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 
 .but-home:hover{

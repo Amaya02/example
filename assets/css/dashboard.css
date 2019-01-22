@@ -76,40 +76,52 @@ table tr{
   margin-top: 10px;    
 }
 
-.navigation-bar > a.logout {
-  display: inline-block;
-  margin-top: 50px;
-  margin-right: 20px;
-  float: right; 
-  font-size: 20px;
-  color: #fff;
-  border-left: 2px solid #fff;
-  padding-left: 10px;
+.navigation-bar .nav > li > a {
+  margin-top: 35px;
+  color:#fff;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
 }
 
-.navigation-bar > a:hover {
+.navigation-bar .navbar-nav>li>a{
+   color:#fff;
+   cursor: pointer;
+   font-family:copper;
+   font-weight: bold;
+   font-size: 1.3em;
+   border-left:2px solid #fff; 
+   padding: 0;
+   padding-right: 30px;
+   padding-left: 10px;
+}
+.navigation-bar .nav >li >a:hover,
+.navigation-bar .nav >li >a:focus{
   color: #f8a513;
-  text-decoration: none;
+  background: none;
+}
+
+@media (max-width: 768px) {
+    
+.navigation-bar .navbar-nav{
+  display: inline-block;
+  float: right;
+}
 }
 
 @media (max-width: 450px) {
-    .navigation-bar > a.logout {
-      font-size: 15px;
-      margin-top: 0;
-      left: -35%;
-      position: relative;
-      border-left: none;
-    }
+    
     .logo {
-      display: block;
       width: 200px;
       height: 60px;
-      margin-top: 0;
+      margin-top: 20px;
       margin-right: auto;
       margin-left: auto;
     }
+
+    .navigation-bar .navbar-nav>li>a{
+   font-size: 1em;
+}
+
 }
 
 /* WRAPPER */
@@ -123,6 +135,7 @@ table tr{
   margin-top: 150px;
   display: flex;
   flex: 1;
+  margin-bottom: 20px;
 }
 
 /* SIDEBAR */
@@ -140,6 +153,7 @@ table tr{
   display: inline-block;
   margin: 1.5em 0 0 1.5em;
   color: #f8a513;
+
 }
 
 .sidebar-nav {
@@ -183,6 +197,8 @@ table tr{
   height: 4em;
   color: #fff;
   margin-bottom: 10px;
+  -webkit-transition-duration: 0.3s; /* Safari */
+  transition-duration: 0.3s;
 }
 
 a.active {
@@ -614,6 +630,8 @@ a.btn-submit {
     font-weight: bold;
     font-size: 16px;
     float: right;
+    -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
 a.btn-submit:hover {
     text-decoration: none;
@@ -709,7 +727,9 @@ a.setting-pass:hover{
 }
 
 button.setting-acc {
-    height:40px;
+    height:auto;
+    padding-top: 5px;
+    padding-bottom: 5px;
     background-color: #f8a513;
     border: 3px black solid;
     border-radius: 5px;
@@ -718,7 +738,7 @@ button.setting-acc {
     font-weight: bold;
     color: #000; 
     -webkit-transition-duration: 0.4s; /* Safari */
-  transition-duration: 0.4s;
+    transition-duration: 0.4s;
 }
 
 button.setting-acc:hover {
@@ -916,11 +936,21 @@ div.footer button.title3{
 
 div.queue-title {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: center;
     font-family: copper;
     font-size: 40px;
     font-weight: bold;
+}
+
+div.queue-title2 {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-family: copper;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
 div.queue-main {
@@ -965,6 +995,9 @@ a.queue-done {
     font-family: copper;
     font-weight: bold;
     padding: 10px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+
 }
 a.queue-done:hover {
     text-decoration: none;

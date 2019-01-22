@@ -61,7 +61,7 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="queue-btn-toolbar">
-                  <a href="<?php echo base_url('transaction/TranDone/'.$traninfo['u_tranid2']); ?>" class="queue-next">DONE</a>
+                  <a href="<?php echo base_url('transaction/TranDone/'.$traninfo['u_tranid2']); ?>" class="queue-done">DONE</a>
                 </div>
               </div>
             </div>

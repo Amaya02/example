@@ -15,17 +15,17 @@
         </li>
         <li>
           <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>admin/companies">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>COMPANIES</em>
+            <i class="pull-left glyphicon glyphicon-briefcase"></i><em>COMPANIES</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/mobileusers">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>MOBILE USERS</em>
+            <i class="pull-left glyphicon glyphicon-user"></i><em>MOBILE USERS</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/setting">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>SETTING</em>
+            <i class="pull-left glyphicon glyphicon-cog"></i><em>SETTING</em>
           </a>
         </li>
        </ul>

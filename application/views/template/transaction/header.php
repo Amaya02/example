@@ -17,9 +17,15 @@
 <body>
 
 	<header>
-	  <nav class="navigation-bar">
-	      <a href=""><img class="logo" src="<?php echo base_url('assets/images/logo.png'); ?>" alt="logo"></a>
-	      <a class="logout" href="<?php echo base_url(); ?>transaction/logout">LOG OUT</a>
-	  </nav>
-	</header>
+      <nav class="navigation-bar">
+          <a href=""><img class="logo" src="<?php echo base_url('assets/images/logo.png'); ?>" alt="logo"></a>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<?php echo base_url(); ?>transaction/logout">LOG OUT</a></li>
+          </ul>
+      </nav>
+    </header>
+
+    <div class="loader">
+        <div class="section-out" id="section-out"></div>
+    </div>
 

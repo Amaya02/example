@@ -2,6 +2,12 @@
 <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
 <script type="text/javascript">
+
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
   function tick(el){
       $(".show-pass").attr('type', el.checked ? 'text':'password');
       }

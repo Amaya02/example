@@ -27,17 +27,17 @@
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/companies">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>COMPANIES</em>
+            <i class="pull-left glyphicon glyphicon-briefcase"></i><em>COMPANIES</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/mobileusers">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>MOBILE USERS</em>
+            <i class="pull-left glyphicon glyphicon-user"></i><em>MOBILE USERS</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link active" href="<?php echo base_url(); ?>admin/setting">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>SETTING</em>
+            <i class="pull-left glyphicon glyphicon-cog"></i><em>SETTING</em>
           </a>
         </li>
        </ul>
@@ -86,7 +86,7 @@
                   <input required type="text" name="cnum" placeholder="Phone Number" onkeypress='return event.charCode >= 48 && event.charCode <= 57' disabled value="<?php echo $metadata['cnum'];?>" />
                 </div>
                 <div class="col-sm-6 setting-form">
-                    <button type="button" class="setting-pass" data-toggle="modal" data-target="#myModal"><b>change password</b></button>
+                    <button type="button" class="setting-pass" data-toggle="modal" data-target="#modalCPass"><b>change password</b></button>
                     <button type="submit" class="setting-acc">Edit Account</button>
                 </div>
               </div>
@@ -97,30 +97,28 @@
     </div>
   </main>
 
-  <div class="setting modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-s setting-mod-dias">
-      <div class="setting-border">
-        <div class="modal-content setting-mod-content">
-          <div class="setting-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
+  <div class="modal fade" id="modalCPass" role="dialog">
+    <div class="modal-dialog modal-s">
+      <div class="border">
+        <div class="modal-content">
+          <div class="header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button> 
           </div>
           <form autocomplete="off" enctype="multipart/form-data" role="form" method="post" action='<?php base_url();?>savepassword'>
-            <div class="modal-body setting-mod-body">
-              <div class="form-group setting-form-grp">
-                  <input class="show-pass" type="password" placeholder="Current Password" name="currentpass" required>
-              </div>
-              <div class="form-group setting-form-grp">
+            <div class="body">
+              <div class="form-group">
+                <input class="show-pass" type="password" placeholder="Current Password" name="currentpass" required>
+                <br>
                 <input class="show-pass"  type="password" placeholder="New Password" name="newpass" 
                 pattern=".{6,50}" title="Minimum of 6 characters, maximum of 50 characters" required>
-              </div>
-              <div class="form-check setting-form-chck">
-                <input type="checkbox" class="form-check-input" id="remember" onchange="tick(this)"> 
-                <label class="form-check-input" for="remember">SHOW PASSWORD</label>
+                <br>
+                <input  id="remember" class="form-check-input" type="checkbox" onchange="tick(this)">
+                <b>Show Password</b>
               </div>
             </div>
-            <div class="setting-footer">
-              <div id="setting-title"  data-dismiss="modal"><b>CHANGE PASSWORD</b></div> 
-              <button type="Submit" value="submit" class="setting-btn-save" data-toogle="modal">save</button>
+            <div class="footer"> 
+              <button  id="btn-title" class="title3">CHANGE PASSWORD</button>
+              <button type="Submit" value="submit" class="setting-btn-toolbar" data-toogle="modal">Save</button>
             </div>
           </form>       
         </div>

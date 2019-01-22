@@ -2,6 +2,12 @@
 <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
 <script type="text/javascript">
+
+  window.addEventListener("load",function() {
+    const loader = document.querySelector(".loader");
+    loader.className += " hidden";
+  });
+
   $('#btn-title').attr('disabled', 'disabled');
   $(function () {
   $('#modalUpdate').on('show.bs.modal', function (event) {

@@ -15,17 +15,17 @@
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/companies">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>COMPANIES</em>
+            <i class="pull-left glyphicon glyphicon-briefcase"></i><em>COMPANIES</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/mobileusers">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>MOBILE USERS</em>
+            <i class="pull-left glyphicon glyphicon-user"></i><em>MOBILE USERS</em>
           </a>
         </li>
         <li>
           <a class="sidebar-nav-link" href="<?php echo base_url(); ?>admin/setting">
-            <i class="pull-left glyphicon glyphicon-home"></i><em>SETTING</em>
+            <i class="pull-left glyphicon glyphicon-cog"></i><em>SETTING</em>
           </a>
         </li>
        </ul>
@@ -68,7 +68,7 @@
               <div class="dash-links">
                 <p class="big"><i class="glyphicon glyphicon-tasks"></i><?php echo $company['num_com']; ?></p>
                 <p class="medium"><b>COMPANIES</b></p>
-                <a class="small" href="<?php echo base_url(); ?>admin/companies"><b>VIEW COMPANIES ></b></a>
+                <a class="small" href="<?php echo base_url(); ?>admin/companies"><b><span>VIEW COMPANIES</span></b></a>
               </div>
             </div>
           </div>
@@ -77,7 +77,7 @@
               <div class="dash-links">
                 <p class="big"><i class="glyphicon glyphicon-user"></i><?php echo $userinfo['num_user']; ?></p>
                 <p class="medium"><b>MOBILE USERS</b></p>
-                <a class="small" href="<?php echo base_url(); ?>admin/mobileusers"><b>VIEW MOBILE USERS ></b></a>
+                <a class="small" href="<?php echo base_url(); ?>admin/mobileusers"><b><span>VIEW MOBILE USERS</span></b></a>
               </div>
             </div>
           </div>

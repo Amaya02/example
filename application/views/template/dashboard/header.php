@@ -19,7 +19,13 @@
 	<header>
 	  <nav class="navigation-bar">
 	      <a href=""><img class="logo" src="<?php echo base_url('assets/images/logo.png'); ?>" alt="logo"></a>
-	      <div class="logout-wrap"><a class="logout" href="<?php echo base_url(); ?>company/logout">LOG OUT</a></div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="<?php echo base_url(); ?>company/logout">LOG OUT</a></li>
+          </ul>
 	  </nav>
 	</header>
+
+    <div class="loader">
+        <div class="section-out" id="section-out"></div>
+    </div>
 
