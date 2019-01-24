@@ -59,7 +59,7 @@ class transaction extends CI_Controller {
         $payload['u_tranid'] = $u_tranid;
  
         // notification title
-        $title = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname'];
+        $title = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." - OPEN";
          
         // notification message
         $message = "Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." is OPEN";
