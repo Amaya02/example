@@ -43,6 +43,34 @@ table tr{
   border: 3px solid #f8a513;
 }
 
+div.table-container {
+  width:100%;       /* table width will be 99% of this*/
+  height: 500px;    /* must be greater than tbody*/
+  overflow: auto;
+}
+
+table {
+  width: 97%;  /*100% of container produces horiz. scroll in Mozilla*/
+  border: none;
+  border-spacing: 0px;
+  background-color: transparent;
+}
+
+table>tbody {
+  overflow: auto;
+  height: 280px;
+  overflow-x: hidden;
+}
+
+table>tbody tr {
+  height: auto;
+}
+
+table>thead tr {
+  position:relative;
+  top: 0px;/*expression(offsetParent.scrollTop); IE5+ only*/
+}
+
 .search{
   margin-top: 30px;
 }
