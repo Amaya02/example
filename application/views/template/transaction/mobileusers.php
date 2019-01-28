@@ -42,17 +42,27 @@
             <p class="date-info"><b>Pending Transactions ( <?php echo $traninfo['date'] ?> )</b></p>
           </div>
         </div>
+        <div class="search1">
+          <div class="row">
+            <div class="col-lg-6">
+              <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search Name..">
+            </div>
+            <div class="col-lg-6">
+              <input type="text" id="myInput1" onkeyup="myFunction1()" placeholder="Search Time of Transaction..">
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="col-lg-12">
             <div class="table-container">
-              <table class="table table-borderless">
+              <table class="table table-borderless" id="myTable">
                 <thead>
                   <tr>
                     <th>Name</th>
                     <th>Contact No.</th>
                     <th>Email Address</th>
                     <th>Date Generated</th>
-                    <th>Date & Time of Transaction</th>
+                    <th>Time of Transaction</th>
                     <th>Status</th>
                     <th>Message</th>
                     <th></th>
@@ -65,7 +75,7 @@
                       <td>'.$post['num'].'</td>
                       <td>'.$post['email'].'</td>
                       <td>'.$post['date_tran'].'</td>
-                      <td>'.$post['esti_date'].' - '.$post['esti_start'].'</td>
+                      <td>'.$post['esti_start'].'</td>
                       <td>'.$post['status'].'</td>
                       <td>'.$post['message'].'</td>
                       <td>
