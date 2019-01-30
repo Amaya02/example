@@ -57,6 +57,7 @@ class transaction extends CI_Controller {
         // optional payload
         $payload = array();
         $payload['u_tranid'] = $u_tranid;
+        $payload['mes'] = "notify";
  
         // notification title
         $title = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." - OPEN";
@@ -116,6 +117,7 @@ class transaction extends CI_Controller {
         // optional payload
         $payload = array();
         $payload['u_tranid'] = $u_tranid;
+        $payload['mes'] = "expired";
  
         // notification title
         $title = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." - TRANSACTION EXPIRED!";
