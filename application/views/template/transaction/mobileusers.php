@@ -66,6 +66,7 @@
                     <th>Status</th>
                     <th>Message</th>
                     <th></th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -81,6 +82,10 @@
                       <td>
                       <a class="btn-transact pull-right" href="'.base_url('transaction/NotifyUser/'.$post['id'].'/'.$post['u_tranid']).'">
                       Notify
+                      </td>
+                      <td>
+                      <a class="btn-transact pull-right" href="'.base_url('transaction/ExpiredUser/'.$post['id'].'/'.$post['u_tranid']).'">
+                      Expire Transaction
                       </td>
                     </tr> ';
                   } ?>

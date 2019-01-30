@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 20, 2019 at 03:02 PM
+-- Generation Time: Jan 30, 2019 at 04:00 AM
 -- Server version: 5.7.19
 -- PHP Version: 5.6.31
 
@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS `transaction_type` (
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(20) NOT NULL AUTO_INCREMENT,
-  `username` varchar(70) NOT NULL,
+  `username` varchar(70) CHARACTER SET latin1 COLLATE latin1_general_cs NOT NULL,
   `fname` varchar(500) NOT NULL,
   `lname` varchar(500) NOT NULL,
   `num` varchar(50) NOT NULL,
@@ -119,6 +119,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(500) NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime DEFAULT NULL,
+  `fcm_regid` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -137,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `user_transac` (
   `date_tran` datetime NOT NULL,
   `esti_date` date NOT NULL,
   `esti_start` time NOT NULL,
-  `message` varchar(400) NOT NULL,
+  `message` varchar(400) DEFAULT NULL,
   PRIMARY KEY (`u_tranid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 COMMIT;

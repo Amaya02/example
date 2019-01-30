@@ -62,7 +62,7 @@ class transaction extends CI_Controller {
         $title = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." - OPEN";
          
         // notification message
-        $message = "Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." is OPEN";
+        $message = $data['comp']['companyname']."\nWindow ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." is OPEN!";
          
         // push type - single user / topic
         $push_type = "individual";
@@ -94,6 +94,65 @@ class transaction extends CI_Controller {
             $response = $firebase->send($regId, $json);
         }
 
+		redirect('transaction/mobileusers','refresh');        
+
+	}
+
+	public function ExpiredUser($userid,$u_tranid){
+		$data['metadata']=$this->session->userdata();
+		$data['token'] = $this->user_model->getUserToken($userid);
+		$data['comp'] = $this->user_model->getCompany($data['metadata']['companyid']);
+
+		// Enabling error reporting
+        error_reporting(-1);
+        ini_set('display_errors', 'On');
+ 
+        require_once __DIR__ . '/firebase.php';
+        require_once __DIR__ . '/push.php';
+ 
+        $firebase = new Firebase();
+        $push = new Push();
+ 
+        // optional payload
+        $payload = array();
+        $payload['u_tranid'] = $u_tranid;
+ 
+        // notification title
+        $title = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']." - TRANSACTION EXPIRED!";
+         
+        // notification message
+        $message = $data['comp']['companyname']." - Window ".$data['metadata']['transacid']." - ".$data['metadata']['transacname']."\nYour Transaction has been expired! Please reschedule..";
+         
+        // push type - single user / topic
+        $push_type = "individual";
+         
+        // whether to include to image or not
+        $include_image = FALSE;
+ 
+ 
+        $push->setTitle($title);
+        $push->setMessage($message);
+        if ($include_image) {
+            $push->setImage('https://api.androidhive.info/images/minion.jpg');
+        } else {
+            $push->setImage('');
+        }
+        $push->setIsBackground(FALSE);
+        $push->setPayload($payload);
+ 
+ 
+        $json = '';
+        $response = '';
+ 
+        if ($push_type == 'topic') {
+            $json = $push->getPush();
+            $response = $firebase->sendToTopic('global', $json);
+        } else if ($push_type == 'individual') {
+            $json = $push->getPush();
+            $regId = $data['token']['fcm_regid'];
+            $response = $firebase->send($regId, $json);
+        }
+        $this->user_model->closeTransaction($u_tranid,"Expired");
 		redirect('transaction/mobileusers','refresh');        
 
 	}

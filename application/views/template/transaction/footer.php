@@ -2,7 +2,11 @@
 <script src="<?php echo base_url('assets/js/bootstrap.min.js'); ?>"></script>
 
 <script type="text/javascript">
-	
+
+   setTimeout(function(){
+       location.reload();
+   },10000);
+
 	window.addEventListener("load",function() {
     const loader = document.querySelector(".loader");
     loader.className += " hidden";

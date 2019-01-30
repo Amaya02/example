@@ -403,6 +403,15 @@ class user_model extends CI_Model {
     $this->db->update('user_transac', $transac);
   }
 
+  public function closeTransaction($u_tranid,$status){
+    $transac=array(
+      'status'=>$status
+    );
+    $this->db->where('u_tranid',$u_tranid);
+    $this->db->where('status',"Pending");
+    $this->db->update('user_transac', $transac);
+  }
+
   public function user_check($username,$id){
  
       $this->db->select('*');
